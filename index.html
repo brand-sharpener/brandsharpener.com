@@ -1,26 +1,999 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Sharpener | AI in Practice by Marketers, for Marketers</title>
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:system-ui,-apple-system,sans-serif;background:#0a1628;color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;text-align:center}
-    .container{max-width:600px;padding:2rem}
-    h1{font-size:2.5rem;margin-bottom:0.5rem;color:#d4a843}
-    p{font-size:1.1rem;color:#94a3b8;margin-bottom:1.5rem}
-    .tagline{font-size:1.3rem;color:#cbd5e1;margin-bottom:0.5rem}
+    <title>Brand Sharpener — AI in Practice for Marketers</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a1628;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+            padding: 1rem 2rem;
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 0;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-logo svg {
+            height: 100px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #cbd5e0;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #d4a843;
+        }
+
+        .nav-cta {
+            background-color: #d4a843;
+            color: #0a1628;
+            padding: 0.6rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .nav-cta:hover {
+            background-color: #e8bc4f;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(212, 168, 67, 0.2);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 6px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #d4a843;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background: rgba(15, 29, 50, 0.95);
+                backdrop-filter: blur(10px);
+                padding: 1rem 2rem;
+                list-style: none;
+                border-bottom: 1px solid rgba(212, 168, 67, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                padding: 0.75rem 0;
+                font-size: 1rem;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-container {
+                padding: 0;
+            }
+        }
+
+        /* ==================== SECTIONS GENERAL ==================== */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            color: #d4a843;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        section p {
+            color: #cbd5e0;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        #hero {
+            padding: 8rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        .hero-subhead {
+            font-size: 1.5rem;
+            color: #d4a843;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-body {
+            color: #cbd5e0;
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: #d4a843;
+            color: #0a1628;
+            border-color: #d4a843;
+        }
+
+        .btn-primary:hover {
+            background-color: #e8bc4f;
+            border-color: #e8bc4f;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(212, 168, 67, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #d4a843;
+            border-color: #d4a843;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(212, 168, 67, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .stats-bar {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(212, 168, 67, 0.2);
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4a843;
+        }
+
+        .stat-label {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-top: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: 2.2rem;
+            }
+
+            .hero-subhead {
+                font-size: 1.2rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .stats-bar {
+                gap: 2rem;
+            }
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        #about {
+            background-color: #0f1d32;
+        }
+
+        /* ==================== MEMBERS SECTION ==================== */
+        .member-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .member-badge {
+            background-color: #111f35;
+            color: #cbd5e0;
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .member-badge:hover {
+            background-color: rgba(212, 168, 67, 0.15);
+            border-color: #d4a843;
+            transform: translateY(-2px);
+            opacity: 1;
+        }
+
+        .member-badge.large {
+            font-size: 1.05rem;
+            padding: 0.9rem 1.5rem;
+            opacity: 1;
+        }
+
+        /* ==================== EVENTS SECTION ==================== */
+        #events {
+            background-color: #0f1d32;
+        }
+
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .event-card {
+            background-color: #111f35;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .event-card:hover {
+            border-color: #d4a843;
+            background-color: rgba(212, 168, 67, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .event-date {
+            color: #d4a843;
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-topic {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-format {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-tag {
+            display: inline-block;
+            background-color: rgba(212, 168, 67, 0.2);
+            color: #d4a843;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* ==================== HOW IT WORKS SECTION ==================== */
+        .how-it-works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background-color: #0f1d32;
+            border-left: 4px solid #d4a843;
+            padding: 2rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            background-color: #111f35;
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            color: #d4a843;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-title {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        /* ==================== HIGHLIGHTS SECTION ==================== */
+        #highlights {
+            background-color: #0f1d32;
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background-color: #111f35;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-card:hover {
+            border-color: #d4a843;
+            background-color: rgba(212, 168, 67, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .highlight-icon {
+            color: #d4a843;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-text {
+            color: #cbd5e0;
+            line-height: 1.8;
+        }
+
+        /* ==================== WHO WE ARE SECTION ==================== */
+        #who {
+            background-color: #111f35;
+        }
+
+        /* ==================== FOOTER CTA SECTION ==================== */
+        #cta {
+            background-color: #0f1d32;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-content p {
+            margin-bottom: 2.5rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .cta-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .cta-link {
+            color: #d4a843;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .cta-link:hover {
+            border-bottom-color: #d4a843;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .cta-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background-color: #0a1628;
+            border-top: 1px solid rgba(212, 168, 67, 0.2);
+            padding: 3rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ffffff;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-branding {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.5rem;
+            flex-direction: column;
+        }
+
+        .footer-logo svg {
+            height: 72px;
+            width: auto;
+        }
+
+        .footer-tagline {
+            color: #a0aec0;
+            font-size: 0.95rem;
+            font-style: italic;
+        }
+
+        .footer-contact {
+            color: #cbd5e0;
+        }
+
+        .footer-contact a {
+            color: #d4a843;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: #e8bc4f;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #d4a843;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e8bc4f;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 168, 67, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Brand Sharpener</h1>
-    <p class="tagline">AI in Practice &mdash; by marketers, for marketers</p>
-    <p>Something sharp is coming. Stay tuned.</p>
-    </div>
-  </body>
-</html></p></h1>
-  </body>
-  </style></title>
-  </head>
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">
+                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 186.53">
+                    <defs>
+                        <style>
+                            .st0 { fill: #d4a843; }
+                            .st1 { fill: #fff; }
+                        </style>
+                    </defs>
+                    <path class="st0" d="M0,52.78v31.09h4.04l.77,1.51H0v3.39h12.35l.77,1.51H0v3.39h7.01l.77,1.51H0v.45l2.89,8.15v17.03h15.02v-17.03l2.89-7.56v-4.38L0,52.78ZM10.4,114.67c-1.27,0-2.31-1.03-2.31-2.31s1.03-2.31,2.31-2.31,2.31,1.03,2.31,2.31-1.03,2.31-2.31,2.31Z"/>
+                    <polygon class="st0" points="0 44.06 0 47.18 0 49.54 18.87 84.97 20.79 88.59 20.79 86.75 20.79 84.97 20.79 83.11 0 44.06"/>
+                    <g>
+                        <path class="st1" d="M44.89,101.4v-19.67h7.84c1.17,0,2.22.1,3.16.3.93.2,1.73.51,2.4.94.67.43,1.18.97,1.53,1.62.36.66.54,1.44.54,2.35,0,.77-.15,1.45-.46,2.01-.31.57-.8,1.03-1.48,1.4-.68.37-1.56.62-2.65.76v.45c1.87.14,3.23.61,4.1,1.42s1.3,1.88,1.3,3.23c0,1.13-.28,2.08-.85,2.85-.57.77-1.42,1.35-2.56,1.74-1.14.4-2.58.6-4.31.6h-8.55ZM48.47,90.16h3.28c1.67,0,2.91-.23,3.71-.69s1.21-1.15,1.21-2.09-.35-1.55-1.06-1.98-1.78-.64-3.23-.64h-3.9v5.39ZM48.47,98.33h5.04c1.35,0,2.35-.21,3-.64s.97-1.09.97-1.98c0-1.03-.42-1.81-1.27-2.32-.84-.52-2.13-.77-3.86-.77h-3.87v5.72Z"/>
+                        <path class="st1" d="M64.77,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                        <path class="st1" d="M80.71,101.78c-.85,0-1.62-.16-2.29-.49-.68-.33-1.21-.82-1.59-1.48-.39-.66-.58-1.47-.58-2.44,0-.81.15-1.51.46-2.09.31-.58.77-1.05,1.39-1.42.62-.37,1.38-.68,2.29-.92s1.99-.46,3.22-.64c.67-.1,1.23-.2,1.65-.3.43-.1.74-.25.94-.46.2-.21.3-.52.3-.94,0-.62-.21-1.15-.64-1.59-.43-.45-1.12-.67-2.07-.67-.58,0-1.13.1-1.65.3-.53.2-.98.51-1.36.94-.38.43-.64.99-.77,1.68l-3.37-1.04c.22-.79.54-1.48.95-2.07s.93-1.09,1.55-1.5c.62-.42,1.32-.73,2.12-.92.79-.2,1.67-.3,2.62-.3,1.45,0,2.64.23,3.58.7s1.63,1.19,2.09,2.18c.46.98.68,2.25.68,3.8v2.92c0,.68.02,1.38.04,2.1.03.73.07,1.45.12,2.18.05.73.11,1.43.19,2.1h-3.37c-.08-.56-.15-1.15-.21-1.79-.06-.64-.11-1.28-.15-1.94h-.48c-.28.76-.68,1.45-1.19,2.07-.52.63-1.15,1.12-1.89,1.49-.75.37-1.61.55-2.58.55ZM82.2,99.01c.4,0,.8-.07,1.21-.21.41-.14.81-.35,1.21-.63s.76-.62,1.1-1.03c.34-.41.62-.89.86-1.45l-.06-2.65.72.12c-.34.28-.76.5-1.25.66-.5.16-1.02.28-1.56.36-.55.08-1.09.17-1.64.28-.55.11-1.04.25-1.48.42-.44.17-.79.41-1.04.72s-.39.73-.39,1.27c0,.68.22,1.2.66,1.58.44.38.99.57,1.67.57Z"/>
+                        <path class="st1" d="M94.27,101.4v-15.59h3.13l-.09,4.77h.54c.28-1.17.65-2.14,1.12-2.89.47-.75,1.07-1.32,1.8-1.7.73-.38,1.59-.57,2.56-.57,1.77,0,3.11.63,4.04,1.88.92,1.25,1.39,3.19,1.39,5.81v8.28h-3.78v-7.9c0-1.69-.25-2.93-.76-3.71-.51-.78-1.26-1.18-2.25-1.18-.83,0-1.54.26-2.12.79-.58.53-1.02,1.22-1.33,2.09-.31.86-.47,1.81-.49,2.85v7.06h-3.75Z"/>
+                        <path class="st1" d="M118.32,101.78c-1.31,0-2.45-.34-3.41-1.01-.96-.67-1.7-1.62-2.22-2.85-.52-1.22-.78-2.67-.78-4.34,0-1.57.24-2.97.72-4.19.48-1.22,1.18-2.19,2.1-2.89.92-.71,2.07-1.06,3.44-1.06,1.05,0,1.92.2,2.61.61.69.41,1.25.97,1.68,1.7.44.73.78,1.57,1.04,2.55h.62c-.12-.62-.23-1.23-.33-1.85-.1-.62-.18-1.21-.25-1.77-.07-.57-.1-1.08-.1-1.53v-4.92h3.78v21.16h-3.19l.06-4.41h-.57c-.22,1.03-.56,1.91-1.01,2.62-.46.72-1.03,1.26-1.71,1.62-.69.37-1.52.55-2.49.55ZM119.51,98.68c.66,0,1.23-.15,1.73-.46.5-.31.91-.7,1.24-1.18.33-.48.58-1,.75-1.56.17-.57.25-1.1.25-1.59v-.51c0-.38-.05-.78-.16-1.22-.11-.44-.27-.87-.48-1.3s-.48-.81-.8-1.16c-.33-.35-.71-.63-1.13-.83-.43-.21-.9-.31-1.42-.31-.77,0-1.43.22-1.97.66-.54.44-.95,1.03-1.24,1.79-.29.76-.43,1.64-.43,2.65s.15,1.9.45,2.65.72,1.34,1.27,1.76c.55.42,1.2.63,1.95.63Z"/>
+                        <path class="st1" d="M146.09,101.78c-1.29,0-2.44-.12-3.46-.37-1.01-.25-1.87-.64-2.58-1.16-.71-.53-1.25-1.17-1.62-1.94-.38-.76-.58-1.66-.6-2.7l3.34-.98c-.02.95.18,1.74.6,2.37s1.02,1.09,1.8,1.39c.79.3,1.68.45,2.7.45s1.79-.12,2.46-.36c.67-.24,1.17-.56,1.5-.97.34-.41.51-.87.51-1.39,0-.58-.21-1.04-.62-1.39-.42-.35-.98-.64-1.68-.86s-1.5-.44-2.4-.64c-.97-.22-1.92-.46-2.85-.72-.92-.26-1.76-.61-2.52-1.04s-1.36-1-1.8-1.68c-.45-.69-.67-1.55-.67-2.61,0-1.19.3-2.22.89-3.08.6-.86,1.46-1.54,2.61-2.03s2.51-.73,4.1-.73,2.94.23,4.11.7c1.17.47,2.09,1.15,2.74,2.04.66.89,1,1.95,1.04,3.16l-3.43.95c0-.66-.1-1.23-.31-1.71-.21-.49-.51-.89-.91-1.22-.4-.33-.87-.57-1.42-.73-.55-.16-1.17-.24-1.86-.24-.81,0-1.52.11-2.13.33-.61.22-1.07.52-1.38.91-.32.39-.48.84-.48,1.36,0,.64.24,1.14.72,1.52.48.38,1.11.68,1.89.91.79.23,1.64.45,2.58.67.85.18,1.71.4,2.58.66.86.26,1.66.6,2.4,1.01.73.42,1.33.98,1.77,1.68.45.71.67,1.59.67,2.67,0,1.15-.31,2.17-.92,3.04s-1.54,1.55-2.77,2.03c-1.23.48-2.76.71-4.59.71Z"/>
+                        <path class="st1" d="M157.83,101.4v-21.16h3.78v4.86c0,.42-.01.84-.04,1.28-.03.44-.07.88-.13,1.34s-.12.91-.19,1.37c-.07.46-.14.91-.22,1.37h.63c.28-1.07.63-1.98,1.07-2.73.44-.74,1-1.32,1.68-1.71.69-.4,1.52-.6,2.52-.6,1.81,0,3.16.63,4.05,1.89.89,1.26,1.34,3.17,1.34,5.74v8.34h-3.78v-7.81c0-1.71-.25-2.97-.76-3.78-.51-.81-1.27-1.22-2.28-1.22-.83,0-1.53.25-2.09.76-.56.51-.98,1.18-1.28,2.01-.3.83-.48,1.78-.54,2.83v7.21h-3.75Z"/>
+                        <path class="st1" d="M179.89,101.78c-.85,0-1.62-.16-2.29-.49-.68-.33-1.21-.82-1.59-1.48-.39-.66-.58-1.47-.58-2.44,0-.81.15-1.51.46-2.09.31-.58.77-1.05,1.39-1.42.62-.37,1.38-.68,2.29-.92s1.99-.46,3.22-.64c.67-.1,1.23-.2,1.65-.3.43-.1.74-.25.94-.46.2-.21.3-.52.3-.94,0-.62-.21-1.15-.64-1.59-.43-.45-1.12-.67-2.07-.67-.58,0-1.13.1-1.65.3-.53.2-.98.51-1.36.94-.38.43-.64.99-.77,1.68l-3.37-1.04c.22-.79.54-1.48.95-2.07s.93-1.09,1.55-1.5c.62-.42,1.32-.73,2.12-.92.79-.2,1.67-.3,2.62-.3,1.45,0,2.64.23,3.58.7s1.63,1.19,2.09,2.18c.46.98.68,2.25.68,3.8v2.92c0,.68.02,1.38.04,2.1.03.73.07,1.45.12,2.18.05.73.11,1.43.19,2.1h-3.37c-.08-.56-.15-1.15-.21-1.79-.06-.64-.11-1.28-.15-1.94h-.48c-.28.76-.68,1.45-1.19,2.07-.52.63-1.15,1.12-1.89,1.49-.75.37-1.61.55-2.58.55ZM181.38,99.01c.4,0,.8-.07,1.21-.21.41-.14.81-.35,1.21-.63s.76-.62,1.1-1.03c.34-.41.62-.89.86-1.45l-.06-2.65.72.12c-.34.28-.76.5-1.25.66-.5.16-1.02.28-1.56.36-.55.08-1.09.17-1.64.28-.55.11-1.04.25-1.48.42-.44.17-.79.41-1.04.72s-.39.73-.39,1.27c0,.68.22,1.2.66,1.58.44.38.99.57,1.67.57Z"/>
+                        <path class="st1" d="M193.45,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                        <path class="st1" d="M206.02,106.34v-20.53h3.16l-.03,4.23.51.03c.2-.99.52-1.84.97-2.53s1.02-1.22,1.71-1.58,1.52-.54,2.47-.54c1.39,0,2.57.34,3.55,1.03.97.69,1.71,1.65,2.22,2.89.51,1.24.76,2.69.76,4.34,0,1.55-.23,2.94-.7,4.16s-1.17,2.19-2.12,2.89c-.94.71-2.11,1.06-3.5,1.06-1.01,0-1.87-.2-2.56-.6-.7-.4-1.26-.94-1.7-1.64-.44-.7-.79-1.5-1.07-2.41h-.54c.12.54.22,1.09.31,1.65.09.57.16,1.12.22,1.67s.09,1.07.09,1.56v4.32h-3.75ZM213.8,98.71c.78,0,1.43-.21,1.97-.64.54-.43.94-1.02,1.22-1.79.28-.76.42-1.64.42-2.64s-.14-1.93-.43-2.68c-.29-.75-.71-1.34-1.27-1.76-.56-.42-1.21-.63-1.97-.63-.66,0-1.23.15-1.73.45-.5.3-.91.69-1.25,1.18-.34.49-.59,1.01-.75,1.56-.16.56-.24,1.1-.24,1.64v.51c0,.4.05.81.16,1.24.11.43.27.85.49,1.28.22.43.49.81.8,1.16.32.35.7.62,1.13.82.44.2.91.3,1.43.3Z"/>
+                        <path class="st1" d="M231.8,101.78c-1.25,0-2.37-.18-3.35-.54-.98-.36-1.81-.88-2.49-1.56-.68-.69-1.19-1.51-1.55-2.49-.36-.97-.54-2.08-.54-3.31s.17-2.36.52-3.4c.35-1.03.85-1.93,1.5-2.68.66-.75,1.46-1.34,2.4-1.76.94-.42,2.02-.63,3.23-.63,1.13,0,2.15.19,3.04.57.89.38,1.65.94,2.26,1.68.62.75,1.07,1.67,1.37,2.77s.4,2.38.3,3.83l-12.19.09v-2.18l10.01-.09-1.31,1.22c.12-1.13.03-2.06-.27-2.79-.3-.73-.73-1.26-1.28-1.61-.56-.35-1.19-.52-1.91-.52-.81,0-1.53.21-2.15.64-.62.43-1.09,1.04-1.42,1.85-.33.8-.49,1.78-.49,2.94,0,1.73.38,3.02,1.15,3.87.76.85,1.81,1.28,3.14,1.28.6,0,1.1-.07,1.5-.22s.75-.35,1.03-.6c.28-.25.5-.53.67-.85.17-.32.3-.66.4-1.01l3.28.74c-.16.74-.42,1.39-.77,1.97s-.82,1.07-1.39,1.49c-.57.42-1.24.74-2.01.95-.77.22-1.68.33-2.71.33Z"/>
+                        <path class="st1" d="M241.93,101.4v-15.59h3.13l-.09,4.77h.54c.28-1.17.65-2.14,1.12-2.89.47-.75,1.07-1.32,1.8-1.7.73-.38,1.59-.57,2.56-.57,1.77,0,3.11.63,4.04,1.88.92,1.25,1.39,3.19,1.39,5.81v8.28h-3.78v-7.9c0-1.69-.25-2.93-.76-3.71-.51-.78-1.26-1.18-2.25-1.18-.83,0-1.54.26-2.12.79-.58.53-1.02,1.22-1.33,2.09-.31.86-.47,1.81-.49,2.85v7.06h-3.75Z"/>
+                        <path class="st1" d="M267.41,101.78c-1.25,0-2.37-.18-3.35-.54-.98-.36-1.81-.88-2.49-1.56-.68-.69-1.19-1.51-1.55-2.49-.36-.97-.54-2.08-.54-3.31s.17-2.36.52-3.4c.35-1.03.85-1.93,1.5-2.68.66-.75,1.46-1.34,2.4-1.76.94-.42,2.02-.63,3.23-.63,1.13,0,2.15.19,3.04.57.89.38,1.65.94,2.26,1.68.62.75,1.07,1.67,1.37,2.77s.4,2.38.3,3.83l-12.19.09v-2.18l10.01-.09-1.31,1.22c.12-1.13.03-2.06-.27-2.79-.3-.73-.73-1.26-1.28-1.61-.56-.35-1.19-.52-1.91-.52-.81,0-1.53.21-2.15.64-.62.43-1.09,1.04-1.42,1.85-.33.8-.49,1.78-.49,2.94,0,1.73.38,3.02,1.15,3.87.76.85,1.81,1.28,3.14,1.28.6,0,1.1-.07,1.5-.22s.75-.35,1.03-.6c.28-.25.5-.53.67-.85.17-.32.3-.66.4-1.01l3.28.74c-.16.74-.42,1.39-.77,1.97s-.82,1.07-1.39,1.49c-.57.42-1.24.74-2.01.95-.77.22-1.68.33-2.71.33Z"/>
+                        <path class="st1" d="M277.54,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                    </g>
+                </svg>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#how">How It Works</a></li>
+                <li><a href="#members">Community</a></li>
+                <li><a href="#cta" class="nav-cta">Join Us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section id="hero">
+        <div class="hero-background">
+            <svg width="100%" height="100%" viewBox="0 0 1400 600" preserveAspectRatio="none">
+                <line x1="200" y1="0" x2="100" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
+                <line x1="600" y1="0" x2="400" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
+                <line x1="1000" y1="0" x2="900" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
+                <line x1="1400" y1="0" x2="1200" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
+            </svg>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-headline fade-in">Brand Sharpener</h1>
+            <p class="hero-subhead fade-in">AI in Practice — by marketers, for marketers</p>
+            <p class="hero-body fade-in">A monthly meetup where marketing practitioners demo real AI tools, share workflows, and sharpen each other's edge.</p>
+            <div class="button-group fade-in">
+                <a href="#cta" class="btn btn-primary">Join Us</a>
+                <a href="#about" class="btn btn-secondary">Learn More</a>
+            </div>
+            <div class="stats-bar fade-in">
+                <div class="stat-item">
+                    <div class="stat-number">90+</div>
+                    <div class="stat-label">Members</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">18</div>
+                    <div class="stat-label">Months Running</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Monthly</div>
+                    <div class="stat-label">Live Meetups</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section id="about">
+        <div class="section-label fade-in">What We Do</div>
+        <h2 class="fade-in">The room where marketers figure out AI together</h2>
+        <p class="fade-in">Brand Sharpener is a practitioner-led community — not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype cycles. Just sharp people making each other sharper.</p>
+    </section>
+
+    <!-- ==================== MEMBERS SECTION ==================== -->
+    <section id="members">
+        <div class="section-label fade-in">Our Members</div>
+        <h2 class="fade-in">Marketing and AI leaders learning in real time</h2>
+        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines — from CMOs and creative directors to data strategists and founders. We're practitioners who share what works and what doesn't to accelerate progress together.</p>
+        <div class="member-grid" id="memberGrid"></div>
+    </section>
+
+    <!-- ==================== EVENTS SECTION ==================== -->
+    <section id="events">
+        <div class="section-label fade-in">Upcoming Events</div>
+        <h2 class="fade-in">What's next on the calendar</h2>
+        <div class="events-container" id="eventsContainer"></div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS SECTION ==================== -->
+    <section id="how">
+        <div class="section-label fade-in">How It Works</div>
+        <h2 class="fade-in">Show up. Demo something. Leave sharper.</h2>
+        <div class="how-it-works-grid">
+            <div class="step-card fade-in">
+                <div class="step-number">01</div>
+                <div class="step-title">Apply</div>
+                <div class="step-description">Apply through our form. We keep the group intentionally small to maintain high engagement and real connection. Not all applicants are admitted — but if you're experimenting with AI in marketing and ready to contribute, this might be the place you've been looking for.</div>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">02</div>
+                <div class="step-title">Show Up</div>
+                <div class="step-description">Attend monthly meetups — virtual via Microsoft Teams. Watch live demos, ask questions, and swap notes with peers.</div>
+            </div>
+            <div class="step-card fade-in">
+                <div class="step-number">03</div>
+                <div class="step-title">Sharpen</div>
+                <div class="step-description">Take what you learn back to your team. Demo a tool yourself. The more you put in, the sharper you get.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHO WE ARE SECTION ==================== -->
+    <section id="who">
+        <div class="section-label fade-in">Who We Are</div>
+        <h2 class="fade-in">Not for spectators</h2>
+        <p class="fade-in">Brand Sharpener is a growing community of active AI enthusiasts — marketers and makers who are testing, building, and learning in real time. You don't need to be an AI expert. You just need to be curious, collaborative, and willing to share what you're trying — whether it's a success or a work-in-progress.</p>
+    </section>
+
+    <!-- ==================== HIGHLIGHTS SECTION ==================== -->
+    <section id="highlights">
+        <div class="section-label fade-in">Highlights</div>
+        <h2 class="fade-in">From our last meetup</h2>
+        <div class="highlights-grid">
+            <div class="highlight-card fade-in">
+                <div class="highlight-icon">✓</div>
+                <div class="highlight-text">Justin Mancari shared actionable tips for setting up AI-powered research and strategy engines</div>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="highlight-icon">✓</div>
+                <div class="highlight-text">Members discussed the importance of paid AI accounts for privacy and advanced features</div>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="highlight-icon">✓</div>
+                <div class="highlight-text">The group explored how to safely use AI with client data, including legal and enterprise considerations</div>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="highlight-icon">✓</div>
+                <div class="highlight-text">Open discussion on the future of AI in professional roles</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section id="cta">
+        <div class="cta-content">
+            <div class="section-label fade-in">Join Us</div>
+            <h2 class="fade-in">Ready to sharpen up?</h2>
+            <p class="fade-in">Apply to join Brand Sharpener. We review every application to keep the group engaged and high-quality.</p>
+            <div class="cta-buttons fade-in">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8kMjPeo58VjJC-uWSwKG_IuNP-M2ZM5tRPt5BKC8gR3bhbA/viewform" class="btn btn-primary" target="_blank">Apply to Join</a>
+            </div>
+            <div class="cta-links fade-in">
+                <a href="https://www.linkedin.com/groups/14593688/" class="cta-link" target="_blank">LinkedIn Group</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSduYixc5PJnpRwHvcfa5HCIHJbie5dIgvG-3rlBVfqWdavDRQ/viewform?usp=sharing&ouid=116940832072664058327" class="cta-link" target="_blank">Suggest a Discussion Topic</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section footer-branding">
+                    <div class="footer-logo">
+                        <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 186.53">
+                            <defs>
+                                <style>
+                                    .st0 { fill: #d4a843; }
+                                    .st1 { fill: #fff; }
+                                </style>
+                            </defs>
+                            <path class="st0" d="M0,52.78v31.09h4.04l.77,1.51H0v3.39h12.35l.77,1.51H0v3.39h7.01l.77,1.51H0v.45l2.89,8.15v17.03h15.02v-17.03l2.89-7.56v-4.38L0,52.78ZM10.4,114.67c-1.27,0-2.31-1.03-2.31-2.31s1.03-2.31,2.31-2.31,2.31,1.03,2.31,2.31-1.03,2.31-2.31,2.31Z"/>
+                            <polygon class="st0" points="0 44.06 0 47.18 0 49.54 18.87 84.97 20.79 88.59 20.79 86.75 20.79 84.97 20.79 83.11 0 44.06"/>
+                            <g>
+                                <path class="st1" d="M44.89,101.4v-19.67h7.84c1.17,0,2.22.1,3.16.3.93.2,1.73.51,2.4.94.67.43,1.18.97,1.53,1.62.36.66.54,1.44.54,2.35,0,.77-.15,1.45-.46,2.01-.31.57-.8,1.03-1.48,1.4-.68.37-1.56.62-2.65.76v.45c1.87.14,3.23.61,4.1,1.42s1.3,1.88,1.3,3.23c0,1.13-.28,2.08-.85,2.85-.57.77-1.42,1.35-2.56,1.74-1.14.4-2.58.6-4.31.6h-8.55ZM48.47,90.16h3.28c1.67,0,2.91-.23,3.71-.69s1.21-1.15,1.21-2.09-.35-1.55-1.06-1.98-1.78-.64-3.23-.64h-3.9v5.39ZM48.47,98.33h5.04c1.35,0,2.35-.21,3-.64s.97-1.09.97-1.98c0-1.03-.42-1.81-1.27-2.32-.84-.52-2.13-.77-3.86-.77h-3.87v5.72Z"/>
+                                <path class="st1" d="M64.77,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                                <path class="st1" d="M80.71,101.78c-.85,0-1.62-.16-2.29-.49-.68-.33-1.21-.82-1.59-1.48-.39-.66-.58-1.47-.58-2.44,0-.81.15-1.51.46-2.09.31-.58.77-1.05,1.39-1.42.62-.37,1.38-.68,2.29-.92s1.99-.46,3.22-.64c.67-.1,1.23-.2,1.65-.3.43-.1.74-.25.94-.46.2-.21.3-.52.3-.94,0-.62-.21-1.15-.64-1.59-.43-.45-1.12-.67-2.07-.67-.58,0-1.13.1-1.65.3-.53.2-.98.51-1.36.94-.38.43-.64.99-.77,1.68l-3.37-1.04c.22-.79.54-1.48.95-2.07s.93-1.09,1.55-1.5c.62-.42,1.32-.73,2.12-.92.79-.2,1.67-.3,2.62-.3,1.45,0,2.64.23,3.58.7s1.63,1.19,2.09,2.18c.46.98.68,2.25.68,3.8v2.92c0,.68.02,1.38.04,2.1.03.73.07,1.45.12,2.18.05.73.11,1.43.19,2.1h-3.37c-.08-.56-.15-1.15-.21-1.79-.06-.64-.11-1.28-.15-1.94h-.48c-.28.76-.68,1.45-1.19,2.07-.52.63-1.15,1.12-1.89,1.49-.75.37-1.61.55-2.58.55ZM82.2,99.01c.4,0,.8-.07,1.21-.21.41-.14.81-.35,1.21-.63s.76-.62,1.1-1.03c.34-.41.62-.89.86-1.45l-.06-2.65.72.12c-.34.28-.76.5-1.25.66-.5.16-1.02.28-1.56.36-.55.08-1.09.17-1.64.28-.55.11-1.04.25-1.48.42-.44.17-.79.41-1.04.72s-.39.73-.39,1.27c0,.68.22,1.2.66,1.58.44.38.99.57,1.67.57Z"/>
+                                <path class="st1" d="M94.27,101.4v-15.59h3.13l-.09,4.77h.54c.28-1.17.65-2.14,1.12-2.89.47-.75,1.07-1.32,1.8-1.7.73-.38,1.59-.57,2.56-.57,1.77,0,3.11.63,4.04,1.88.92,1.25,1.39,3.19,1.39,5.81v8.28h-3.78v-7.9c0-1.69-.25-2.93-.76-3.71-.51-.78-1.26-1.18-2.25-1.18-.83,0-1.54.26-2.12.79-.58.53-1.02,1.22-1.33,2.09-.31.86-.47,1.81-.49,2.85v7.06h-3.75Z"/>
+                                <path class="st1" d="M118.32,101.78c-1.31,0-2.45-.34-3.41-1.01-.96-.67-1.7-1.62-2.22-2.85-.52-1.22-.78-2.67-.78-4.34,0-1.57.24-2.97.72-4.19.48-1.22,1.18-2.19,2.1-2.89.92-.71,2.07-1.06,3.44-1.06,1.05,0,1.92.2,2.61.61.69.41,1.25.97,1.68,1.7.44.73.78,1.57,1.04,2.55h.62c-.12-.62-.23-1.23-.33-1.85-.1-.62-.18-1.21-.25-1.77-.07-.57-.1-1.08-.1-1.53v-4.92h3.78v21.16h-3.19l.06-4.41h-.57c-.22,1.03-.56,1.91-1.01,2.62-.46.72-1.03,1.26-1.71,1.62-.69.37-1.52.55-2.49.55ZM119.51,98.68c.66,0,1.23-.15,1.73-.46.5-.31.91-.7,1.24-1.18.33-.48.58-1,.75-1.56.17-.57.25-1.1.25-1.59v-.51c0-.38-.05-.78-.16-1.22-.11-.44-.27-.87-.48-1.3s-.48-.81-.8-1.16c-.33-.35-.71-.63-1.13-.83-.43-.21-.9-.31-1.42-.31-.77,0-1.43.22-1.97.66-.54.44-.95,1.03-1.24,1.79-.29.76-.43,1.64-.43,2.65s.15,1.9.45,2.65.72,1.34,1.27,1.76c.55.42,1.2.63,1.95.63Z"/>
+                                <path class="st1" d="M146.09,101.78c-1.29,0-2.44-.12-3.46-.37-1.01-.25-1.87-.64-2.58-1.16-.71-.53-1.25-1.17-1.62-1.94-.38-.76-.58-1.66-.6-2.7l3.34-.98c-.02.95.18,1.74.6,2.37s1.02,1.09,1.8,1.39c.79.3,1.68.45,2.7.45s1.79-.12,2.46-.36c.67-.24,1.17-.56,1.5-.97.34-.41.51-.87.51-1.39,0-.58-.21-1.04-.62-1.39-.42-.35-.98-.64-1.68-.86s-1.5-.44-2.4-.64c-.97-.22-1.92-.46-2.85-.72-.92-.26-1.76-.61-2.52-1.04s-1.36-1-1.8-1.68c-.45-.69-.67-1.55-.67-2.61,0-1.19.3-2.22.89-3.08.6-.86,1.46-1.54,2.61-2.03s2.51-.73,4.1-.73,2.94.23,4.11.7c1.17.47,2.09,1.15,2.74,2.04.66.89,1,1.95,1.04,3.16l-3.43.95c0-.66-.1-1.23-.31-1.71-.21-.49-.51-.89-.91-1.22-.4-.33-.87-.57-1.42-.73-.55-.16-1.17-.24-1.86-.24-.81,0-1.52.11-2.13.33-.61.22-1.07.52-1.38.91-.32.39-.48.84-.48,1.36,0,.64.24,1.14.72,1.52.48.38,1.11.68,1.89.91.79.23,1.64.45,2.58.67.85.18,1.71.4,2.58.66.86.26,1.66.6,2.4,1.01.73.42,1.33.98,1.77,1.68.45.71.67,1.59.67,2.67,0,1.15-.31,2.17-.92,3.04s-1.54,1.55-2.77,2.03c-1.23.48-2.76.71-4.59.71Z"/>
+                                <path class="st1" d="M157.83,101.4v-21.16h3.78v4.86c0,.42-.01.84-.04,1.28-.03.44-.07.88-.13,1.34s-.12.91-.19,1.37c-.07.46-.14.91-.22,1.37h.63c.28-1.07.63-1.98,1.07-2.73.44-.74,1-1.32,1.68-1.71.69-.4,1.52-.6,2.52-.6,1.81,0,3.16.63,4.05,1.89.89,1.26,1.34,3.17,1.34,5.74v8.34h-3.78v-7.81c0-1.71-.25-2.97-.76-3.78-.51-.81-1.27-1.22-2.28-1.22-.83,0-1.53.25-2.09.76-.56.51-.98,1.18-1.28,2.01-.3.83-.48,1.78-.54,2.83v7.21h-3.75Z"/>
+                                <path class="st1" d="M179.89,101.78c-.85,0-1.62-.16-2.29-.49-.68-.33-1.21-.82-1.59-1.48-.39-.66-.58-1.47-.58-2.44,0-.81.15-1.51.46-2.09.31-.58.77-1.05,1.39-1.42.62-.37,1.38-.68,2.29-.92s1.99-.46,3.22-.64c.67-.1,1.23-.2,1.65-.3.43-.1.74-.25.94-.46.2-.21.3-.52.3-.94,0-.62-.21-1.15-.64-1.59-.43-.45-1.12-.67-2.07-.67-.58,0-1.13.1-1.65.3-.53.2-.98.51-1.36.94-.38.43-.64.99-.77,1.68l-3.37-1.04c.22-.79.54-1.48.95-2.07s.93-1.09,1.55-1.5c.62-.42,1.32-.73,2.12-.92.79-.2,1.67-.3,2.62-.3,1.45,0,2.64.23,3.58.7s1.63,1.19,2.09,2.18c.46.98.68,2.25.68,3.8v2.92c0,.68.02,1.38.04,2.1.03.73.07,1.45.12,2.18.05.73.11,1.43.19,2.1h-3.37c-.08-.56-.15-1.15-.21-1.79-.06-.64-.11-1.28-.15-1.94h-.48c-.28.76-.68,1.45-1.19,2.07-.52.63-1.15,1.12-1.89,1.49-.75.37-1.61.55-2.58.55ZM181.38,99.01c.4,0,.8-.07,1.21-.21.41-.14.81-.35,1.21-.63s.76-.62,1.1-1.03c.34-.41.62-.89.86-1.45l-.06-2.65.72.12c-.34.28-.76.5-1.25.66-.5.16-1.02.28-1.56.36-.55.08-1.09.17-1.64.28-.55.11-1.04.25-1.48.42-.44.17-.79.41-1.04.72s-.39.73-.39,1.27c0,.68.22,1.2.66,1.58.44.38.99.57,1.67.57Z"/>
+                                <path class="st1" d="M193.45,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                                <path class="st1" d="M206.02,106.34v-20.53h3.16l-.03,4.23.51.03c.2-.99.52-1.84.97-2.53s1.02-1.22,1.71-1.58,1.52-.54,2.47-.54c1.39,0,2.57.34,3.55,1.03.97.69,1.71,1.65,2.22,2.89.51,1.24.76,2.69.76,4.34,0,1.55-.23,2.94-.7,4.16s-1.17,2.19-2.12,2.89c-.94.71-2.11,1.06-3.5,1.06-1.01,0-1.87-.2-2.56-.6-.7-.4-1.26-.94-1.7-1.64-.44-.7-.79-1.5-1.07-2.41h-.54c.12.54.22,1.09.31,1.65.09.57.16,1.12.22,1.67s.09,1.07.09,1.56v4.32h-3.75ZM213.8,98.71c.78,0,1.43-.21,1.97-.64.54-.43.94-1.02,1.22-1.79.28-.76.42-1.64.42-2.64s-.14-1.93-.43-2.68c-.29-.75-.71-1.34-1.27-1.76-.56-.42-1.21-.63-1.97-.63-.66,0-1.23.15-1.73.45-.5.3-.91.69-1.25,1.18-.34.49-.59,1.01-.75,1.56-.16.56-.24,1.1-.24,1.64v.51c0,.4.05.81.16,1.24.11.43.27.85.49,1.28.22.43.49.81.8,1.16.32.35.7.62,1.13.82.44.2.91.3,1.43.3Z"/>
+                                <path class="st1" d="M231.8,101.78c-1.25,0-2.37-.18-3.35-.54-.98-.36-1.81-.88-2.49-1.56-.68-.69-1.19-1.51-1.55-2.49-.36-.97-.54-2.08-.54-3.31s.17-2.36.52-3.4c.35-1.03.85-1.93,1.5-2.68.66-.75,1.46-1.34,2.4-1.76.94-.42,2.02-.63,3.23-.63,1.13,0,2.15.19,3.04.57.89.38,1.65.94,2.26,1.68.62.75,1.07,1.67,1.37,2.77s.4,2.38.3,3.83l-12.19.09v-2.18l10.01-.09-1.31,1.22c.12-1.13.03-2.06-.27-2.79-.3-.73-.73-1.26-1.28-1.61-.56-.35-1.19-.52-1.91-.52-.81,0-1.53.21-2.15.64-.62.43-1.09,1.04-1.42,1.85-.33.8-.49,1.78-.49,2.94,0,1.73.38,3.02,1.15,3.87.76.85,1.81,1.28,3.14,1.28.6,0,1.1-.07,1.5-.22s.75-.35,1.03-.6c.28-.25.5-.53.67-.85.17-.32.3-.66.4-1.01l3.28.74c-.16.74-.42,1.39-.77,1.97s-.82,1.07-1.39,1.49c-.57.42-1.24.74-2.01.95-.77.22-1.68.33-2.71.33Z"/>
+                                <path class="st1" d="M241.93,101.4v-15.59h3.13l-.09,4.77h.54c.28-1.17.65-2.14,1.12-2.89.47-.75,1.07-1.32,1.8-1.7.73-.38,1.59-.57,2.56-.57,1.77,0,3.11.63,4.04,1.88.92,1.25,1.39,3.19,1.39,5.81v8.28h-3.78v-7.9c0-1.69-.25-2.93-.76-3.71-.51-.78-1.26-1.18-2.25-1.18-.83,0-1.54.26-2.12.79-.58.53-1.02,1.22-1.33,2.09-.31.86-.47,1.81-.49,2.85v7.06h-3.75Z"/>
+                                <path class="st1" d="M267.41,101.78c-1.25,0-2.37-.18-3.35-.54-.98-.36-1.81-.88-2.49-1.56-.68-.69-1.19-1.51-1.55-2.49-.36-.97-.54-2.08-.54-3.31s.17-2.36.52-3.4c.35-1.03.85-1.93,1.5-2.68.66-.75,1.46-1.34,2.4-1.76.94-.42,2.02-.63,3.23-.63,1.13,0,2.15.19,3.04.57.89.38,1.65.94,2.26,1.68.62.75,1.07,1.67,1.37,2.77s.4,2.38.3,3.83l-12.19.09v-2.18l10.01-.09-1.31,1.22c.12-1.13.03-2.06-.27-2.79-.3-.73-.73-1.26-1.28-1.61-.56-.35-1.19-.52-1.91-.52-.81,0-1.53.21-2.15.64-.62.43-1.09,1.04-1.42,1.85-.33.8-.49,1.78-.49,2.94,0,1.73.38,3.02,1.15,3.87.76.85,1.81,1.28,3.14,1.28.6,0,1.1-.07,1.5-.22s.75-.35,1.03-.6c.28-.25.5-.53.67-.85.17-.32.3-.66.4-1.01l3.28.74c-.16.74-.42,1.39-.77,1.97s-.82,1.07-1.39,1.49c-.57.42-1.24.74-2.01.95-.77.22-1.68.33-2.71.33Z"/>
+                                <path class="st1" d="M277.54,101.4v-15.59h3.16l-.06,5.36h.54c.18-1.27.46-2.33.83-3.17.38-.84.9-1.48,1.58-1.91s1.51-.64,2.5-.64c.2,0,.41,0,.64.03.23.02.48.07.76.15l-.15,3.96c-.32-.12-.64-.2-.97-.25-.33-.05-.63-.07-.91-.07-.78,0-1.45.2-2.01.6-.57.4-1.02.96-1.37,1.68-.35.73-.61,1.58-.79,2.58v7.27h-3.75Z"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="footer-tagline">AI in Practice — by marketers, for marketers</div>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <div class="footer-contact">
+                        <a href="mailto:brandsharpenerhq@gmail.com">brandsharpenerhq@gmail.com</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <div class="footer-links">
+                        <a href="https://www.linkedin.com/groups/14593688/" target="_blank">LinkedIn Group</a>
+                        <a href="https://docs.google.com/presentation/d/1Pxp8UE10sD4y4PKdHmsoAiopJKwpBnzuRKdK3oUldY0/edit" target="_blank">Member Bios</a>
+                        <a href="https://docs.google.com/spreadsheets/d/1zs601lhXuwNvkJYQ4dI6RwxZGr9qSG7s9Jb13j3GRy0/edit" target="_blank">AI Tool Evaluation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Brand Sharpener. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ==================== DATA ====================
+        // Events array - update as needed
+        const events = [
+            { date: "April 17", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
+            { date: "May 15", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
+            { date: "June 19", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" }
+        ];
+
+        // Member titles array
+        const memberTitles = [
+            "Director of Marketing",
+            "VP Marketing",
+            "VP AI Strategy & Enablement",
+            "Creative Director of Marketing",
+            "President",
+            "Chief Growth Officer",
+            "CEO",
+            "Digital Services Director",
+            "CCO",
+            "Digital Marketing Director",
+            "Sr. Marketing Strategist",
+            "Director of Digital Media Strategy",
+            "SVP",
+            "VP Product",
+            "Head of Measurement & Analytics",
+            "VP Research and Data Science",
+            "Head of Insights",
+            "Principal",
+            "Founder",
+            "Co-Founder",
+            "Marketing Research Consultant & Strategist",
+            "Lead Photographer",
+            "BIA Advisory Services",
+            "Integrated Marketer",
+            "Media and Market Research Consultant",
+            "Executive Vice President Partner"
+        ];
+
+        // ==================== HAMBURGER MENU ====================
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ==================== RENDER EVENTS ====================
+        const eventsContainer = document.getElementById('eventsContainer');
+        events.forEach(event => {
+            const eventCard = document.createElement('div');
+            eventCard.className = 'event-card fade-in';
+            eventCard.innerHTML = `
+                <div class="event-date">${event.date}</div>
+                <div class="event-topic">${event.topic}</div>
+                <div class="event-format">${event.format}</div>
+                <span class="event-tag">${event.tag}</span>
+            `;
+            eventsContainer.appendChild(eventCard);
+        });
+
+        // ==================== RENDER MEMBER BADGES ====================
+        const memberGrid = document.getElementById('memberGrid');
+        memberTitles.forEach((title, index) => {
+            const badge = document.createElement('div');
+            badge.className = 'member-badge fade-in';
+            if (index % 5 === 0 || index % 7 === 0) {
+                badge.classList.add('large');
+            }
+            badge.textContent = title;
+            memberGrid.appendChild(badge);
+        });
+
+        // ==================== INTERSECTION OBSERVER FOR FADE-IN ====================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
