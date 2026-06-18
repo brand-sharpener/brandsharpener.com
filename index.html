@@ -271,28 +271,27 @@
 
         .stats-bar {
             display: flex;
-            gap: 3rem;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.75rem 1.25rem;
             margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid rgba(212, 168, 67, 0.2);
-            flex-wrap: wrap;
         }
 
         .stat-item {
-            display: flex;
-            flex-direction: column;
+            color: #a0aec0;
+            font-size: 1rem;
         }
 
         .stat-number {
-            font-size: 1.8rem;
-            font-weight: 700;
             color: #d4a843;
+            font-weight: 700;
+            font-size: 1.15rem;
         }
 
-        .stat-label {
-            color: #a0aec0;
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
+        .stat-divider {
+            color: rgba(212, 168, 67, 0.4);
         }
 
         @media (max-width: 768px) {
@@ -314,7 +313,7 @@
             }
 
             .stats-bar {
-                gap: 2rem;
+                gap: 0.6rem 1rem;
             }
         }
 
@@ -853,18 +852,11 @@
                 <a href="#about" class="btn btn-secondary">Learn More</a>
             </div>
             <div class="stats-bar fade-in">
-                <div class="stat-item">
-                    <div class="stat-number">90+</div>
-                    <div class="stat-label">Members</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">18</div>
-                    <div class="stat-label">Months Running</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">Monthly</div>
-                    <div class="stat-label">Live Meetups</div>
-                </div>
+                <span class="stat-item"><span class="stat-number">90+</span> Members</span>
+                <span class="stat-divider">·</span>
+                <span class="stat-item"><span class="stat-number">18</span> Months Running</span>
+                <span class="stat-divider">·</span>
+                <span class="stat-item"><span class="stat-number">Monthly</span> Virtual Meetups</span>
             </div>
         </div>
     </section>
@@ -873,14 +865,14 @@
     <section id="about">
         <div class="section-label fade-in">What We Do</div>
         <h2 class="fade-in">The room where marketers figure out AI together</h2>
-        <p class="fade-in">Brand Sharpener is a practitioner-led community, not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype cycles. Just sharp people making each other sharper.</p>
+        <p class="fade-in">Brand Sharpener is a practitioner-led community, not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype. Just sharp people making each other sharper.</p>
     </section>
 
     <!-- ==================== MEMBERS SECTION ==================== -->
     <section id="members">
         <div class="section-label fade-in">Our Members</div>
         <h2 class="fade-in">Marketing and AI leaders learning in real time</h2>
-        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines, from CMOs and creative directors to data strategists and founders. We're practitioners who share what works and what doesn't to accelerate progress together.</p>
+        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines, from CMOs and creative directors to data strategists and founders. We're practitioners and leaders who share what works and what doesn't to accelerate progress together.</p>
         <div class="member-grid" id="memberGrid"></div>
     </section>
 
@@ -1037,7 +1029,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Brand Sharpener. All rights reserved.</p>
+                <p>&copy; 2026 Brand Sharpener. Formerly MAGIC (Marketing AI Guild for Innovation and Collaboration). All rights reserved.</p>
             </div>
         </div>
     </footer>
