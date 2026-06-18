@@ -395,6 +395,17 @@
             margin-bottom: 1rem;
         }
 
+        .event-speaker {
+            color: #cbd5e0;
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-speaker strong {
+            color: #ffffff;
+            font-weight: 600;
+        }
+
         .event-format {
             color: #a0aec0;
             font-size: 0.95rem;
@@ -411,6 +422,23 @@
             font-size: 0.8rem;
             letter-spacing: 1px;
             text-transform: uppercase;
+        }
+
+        .events-note {
+            margin-bottom: 0 !important;
+        }
+
+        .events-note a {
+            color: #d4a843;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .events-note a:hover {
+            color: #e8bc4f;
+            border-bottom-color: #e8bc4f;
         }
 
         /* ==================== HOW IT WORKS SECTION ==================== */
@@ -755,6 +783,7 @@
     <section id="events">
         <div class="section-label fade-in">Upcoming Events</div>
         <h2 class="fade-in">What's next on the calendar</h2>
+        <p class="fade-in events-note">Meetups are members-only. <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8kMjPeo58VjJC-uWSwKG_IuNP-M2ZM5tRPt5BKC8gR3bhbA/viewform" target="_blank">Apply to join</a>, or email <a href="mailto:brandsharpenerhq@gmail.com">brandsharpenerhq@gmail.com</a> to be added to the invite.</p>
         <div class="events-container" id="eventsContainer"></div>
     </section>
 
@@ -791,7 +820,7 @@
     <!-- ==================== HIGHLIGHTS SECTION ==================== -->
     <section id="highlights">
         <div class="section-label fade-in">Highlights</div>
-        <h2 class="fade-in">From our last meetup</h2>
+        <h2 class="fade-in">From our recent meetups</h2>
         <div class="highlights-grid">
             <div class="highlight-card fade-in">
                 <div class="highlight-icon">✓</div>
@@ -808,6 +837,10 @@
             <div class="highlight-card fade-in">
                 <div class="highlight-icon">✓</div>
                 <div class="highlight-text">Open discussion on the future of AI in professional roles</div>
+            </div>
+            <div class="highlight-card fade-in">
+                <div class="highlight-icon">✓</div>
+                <div class="highlight-text">Krysti Horvat shared how she used Claude Code to build a Google Chrome extension that helps a team of graphic designers simplify workload management on a legacy platform</div>
             </div>
         </div>
     </section>
@@ -888,9 +921,9 @@
         // ==================== DATA ====================
         // Events array - update as needed
         const events = [
-            { date: "April 17", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
-            { date: "May 15", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
-            { date: "June 19", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" }
+            { date: "June 26", topic: "Navigating AI Creative Tools Without Leaving Your Clients Exposed", speaker: "Plus Aziz", speakerTitle: "Senior Marketing Manager, WongDoody (an Infosys company)", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
+            { date: "July 17", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" },
+            { date: "August 21", topic: "TBD", format: "Teams Meeting, 12:00 CT", tag: "MEETUP" }
         ];
 
         // Member titles array
@@ -942,9 +975,13 @@
         events.forEach(event => {
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card fade-in';
+            const speakerHtml = event.speaker
+                ? `<div class="event-speaker"><strong>${event.speaker}</strong>${event.speakerTitle ? ' — ' + event.speakerTitle : ''}</div>`
+                : '';
             eventCard.innerHTML = `
                 <div class="event-date">${event.date}</div>
                 <div class="event-topic">${event.topic}</div>
+                ${speakerHtml}
                 <div class="event-format">${event.format}</div>
                 <span class="event-tag">${event.tag}</span>
             `;
