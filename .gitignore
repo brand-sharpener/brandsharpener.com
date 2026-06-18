@@ -1,1 +1,8 @@
 .DS_Store
+
+# Local tooling
+.claude/
+
+# Internal / source docs — keep out of the public repo
+*.docx
+*.pdf
