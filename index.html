@@ -441,6 +441,74 @@
             border-bottom-color: #e8bc4f;
         }
 
+        .speaker-spotlight {
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            background-color: #111f35;
+            border: 1px solid rgba(212, 168, 67, 0.3);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .speaker-photo {
+            flex-shrink: 0;
+        }
+
+        .speaker-photo img {
+            width: 170px;
+            height: 170px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 2px solid rgba(212, 168, 67, 0.4);
+            display: block;
+        }
+
+        .spotlight-label {
+            color: #d4a843;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+
+        .speaker-name {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.25rem;
+        }
+
+        .speaker-role {
+            color: #d4a843;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .speaker-talk {
+            color: #ffffff;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .speaker-bio {
+            color: #cbd5e0;
+            font-size: 1rem;
+            line-height: 1.8;
+            max-width: none;
+            margin-bottom: 0 !important;
+        }
+
+        @media (max-width: 768px) {
+            .speaker-spotlight {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
         /* ==================== HOW IT WORKS SECTION ==================== */
         .how-it-works-grid {
             display: grid;
@@ -784,6 +852,18 @@
         <div class="section-label fade-in">Upcoming Events</div>
         <h2 class="fade-in">What's next on the calendar</h2>
         <p class="fade-in events-note">Meetups are members-only. <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8kMjPeo58VjJC-uWSwKG_IuNP-M2ZM5tRPt5BKC8gR3bhbA/viewform" target="_blank">Apply to join</a>, or email <a href="mailto:brandsharpenerhq@gmail.com">brandsharpenerhq@gmail.com</a> to be added to the invite.</p>
+        <div class="speaker-spotlight fade-in">
+            <div class="speaker-photo">
+                <img src="aziz.jpg" alt="Plus Aziz, Senior Marketing Manager at WongDoody">
+            </div>
+            <div class="speaker-info">
+                <div class="spotlight-label">Featured Speaker · June 26</div>
+                <h3 class="speaker-name">Plus Aziz</h3>
+                <div class="speaker-role">Senior Marketing Manager, WongDoody (an Infosys company)</div>
+                <div class="speaker-talk">"Navigating AI Creative Tools Without Leaving Your Clients Exposed"</div>
+                <p class="speaker-bio">+Aziz came to the US from Kuwait in 2002 to study advertising and pursue music. After agency roles in NYC, New Orleans, and finally Seattle, he's now a Senior Marketing Manager at WongDoody (owned by Infosys) and volunteers with CreativeMornings/Seattle. Following eight years of "cultural strategy" and account planning, he began freelancing in 2016, running marketing for minority-owned businesses, companies expanding into the Middle East, and fast-growing B2B/SaaS clients. His band, Kuwaisiana, is a bilingual rock band.</p>
+            </div>
+        </div>
         <div class="events-container" id="eventsContainer"></div>
     </section>
 
