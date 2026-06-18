@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Sharpener — AI in Practice for Marketers</title>
+    <title>Brand Sharpener: AI in Practice for Marketers</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -586,6 +586,43 @@
             line-height: 1.8;
         }
 
+        /* ==================== TOPICS SECTION ==================== */
+        .topic-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 3rem;
+        }
+
+        .topic-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            background-color: #111f35;
+            color: #cbd5e0;
+            padding: 0.85rem 1.4rem;
+            border-radius: 8px;
+            border: 1px solid rgba(212, 168, 67, 0.25);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .topic-tag::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #d4a843;
+            flex-shrink: 0;
+        }
+
+        .topic-tag:hover {
+            border-color: #d4a843;
+            background-color: rgba(212, 168, 67, 0.08);
+            transform: translateY(-2px);
+        }
+
         /* ==================== WHO WE ARE SECTION ==================== */
         #who {
             background-color: #111f35;
@@ -836,14 +873,14 @@
     <section id="about">
         <div class="section-label fade-in">What We Do</div>
         <h2 class="fade-in">The room where marketers figure out AI together</h2>
-        <p class="fade-in">Brand Sharpener is a practitioner-led community — not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype cycles. Just sharp people making each other sharper.</p>
+        <p class="fade-in">Brand Sharpener is a practitioner-led community, not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype cycles. Just sharp people making each other sharper.</p>
     </section>
 
     <!-- ==================== MEMBERS SECTION ==================== -->
     <section id="members">
         <div class="section-label fade-in">Our Members</div>
         <h2 class="fade-in">Marketing and AI leaders learning in real time</h2>
-        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines — from CMOs and creative directors to data strategists and founders. We're practitioners who share what works and what doesn't to accelerate progress together.</p>
+        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines, from CMOs and creative directors to data strategists and founders. We're practitioners who share what works and what doesn't to accelerate progress together.</p>
         <div class="member-grid" id="memberGrid"></div>
     </section>
 
@@ -875,12 +912,12 @@
             <div class="step-card fade-in">
                 <div class="step-number">01</div>
                 <div class="step-title">Apply</div>
-                <div class="step-description">Apply through our form. We keep the group intentionally small to maintain high engagement and real connection. Not all applicants are admitted — but if you're experimenting with AI in marketing and ready to contribute, this might be the place you've been looking for.</div>
+                <div class="step-description">Apply through our form. We keep the group intentionally small to maintain high engagement and real connection. Not all applicants are admitted, but if you're experimenting with AI in marketing and ready to contribute, this might be the place you've been looking for.</div>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">02</div>
                 <div class="step-title">Show Up</div>
-                <div class="step-description">Attend monthly meetups — virtual via Microsoft Teams. Watch live demos, ask questions, and swap notes with peers.</div>
+                <div class="step-description">Attend monthly meetups, held virtually via Microsoft Teams. Watch live demos, ask questions, and swap notes with peers.</div>
             </div>
             <div class="step-card fade-in">
                 <div class="step-number">03</div>
@@ -894,7 +931,7 @@
     <section id="who">
         <div class="section-label fade-in">Who We Are</div>
         <h2 class="fade-in">Not for spectators</h2>
-        <p class="fade-in">Brand Sharpener is a growing community of active AI enthusiasts — marketers and makers who are testing, building, and learning in real time. You don't need to be an AI expert. You just need to be curious, collaborative, and willing to share what you're trying — whether it's a success or a work-in-progress.</p>
+        <p class="fade-in">Brand Sharpener is a growing community of active AI enthusiasts, marketers and makers who are testing, building, and learning in real time. You don't need to be an AI expert. You just need to be curious, collaborative, and willing to share what you're trying, whether it's a success or a work-in-progress.</p>
     </section>
 
     <!-- ==================== HIGHLIGHTS SECTION ==================== -->
@@ -923,6 +960,14 @@
                 <div class="highlight-text">Krysti Horvat shared how she used Claude Code to build a Google Chrome extension that helps a team of graphic designers simplify workload management on a legacy platform</div>
             </div>
         </div>
+    </section>
+
+    <!-- ==================== TOPICS SECTION ==================== -->
+    <section id="topics">
+        <div class="section-label fade-in">Our Track Record</div>
+        <h2 class="fade-in">What we've dug into together</h2>
+        <p class="fade-in">Every month, members bring real examples to the table: the tools, workflows, and honest lessons behind what's actually working. A sample of the ground we've covered:</p>
+        <div class="topic-grid" id="topicsGrid"></div>
     </section>
 
     <!-- ==================== CTA SECTION ==================== -->
@@ -1036,6 +1081,22 @@
             "Executive Vice President Partner"
         ];
 
+        // Topics covered array - update as the group covers new ground
+        const topics = [
+            "Creative AI & storyboarding",
+            "Synthetic data & synthetic audiences",
+            "Marketing automation & content ops",
+            "AI transformation & opportunity scoring",
+            "Persona-driven content & custom GPTs",
+            "Deep research & multi-tool verification",
+            "Agentic AI",
+            "AI-powered SEO & answer engines",
+            "Custom-GPT sales training",
+            "AI literacy & KPI frameworks",
+            "Churn & predictive modeling",
+            "Packaging & creative QC automation"
+        ];
+
         // ==================== HAMBURGER MENU ====================
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -1056,7 +1117,7 @@
             const eventCard = document.createElement('div');
             eventCard.className = 'event-card fade-in';
             const speakerHtml = event.speaker
-                ? `<div class="event-speaker"><strong>${event.speaker}</strong>${event.speakerTitle ? ' — ' + event.speakerTitle : ''}</div>`
+                ? `<div class="event-speaker"><strong>${event.speaker}</strong>${event.speakerTitle ? ', ' + event.speakerTitle : ''}</div>`
                 : '';
             eventCard.innerHTML = `
                 <div class="event-date">${event.date}</div>
@@ -1078,6 +1139,15 @@
             }
             badge.textContent = title;
             memberGrid.appendChild(badge);
+        });
+
+        // ==================== RENDER TOPICS ====================
+        const topicsGrid = document.getElementById('topicsGrid');
+        topics.forEach(topic => {
+            const tag = document.createElement('div');
+            tag.className = 'topic-tag fade-in';
+            tag.textContent = topic;
+            topicsGrid.appendChild(tag);
         });
 
         // ==================== INTERSECTION OBSERVER FOR FADE-IN ====================
