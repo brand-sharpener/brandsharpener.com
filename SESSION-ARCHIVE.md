@@ -26,13 +26,22 @@ to the bottom as they happen.
 | May 23, 2025 | Curt Meinhold | AI Video Generation for Legacy Websites |
 | June 20, 2025 | Doug Guion | Overview of AI Agents |
 | July 18, 2025 | Doug Weil (Consolidus) | CustomGPT for Sales Training |
-| Aug 15, 2025 | Stephen | AI Hackathon |
+| Aug 15, 2025 | Stephen Griffiths | AI Hackathon |
 | Sept 19, 2025 | Yogesh Chavda | 6 Skills for AI |
-| Oct 2025 | Jeannie Hill | AI and SEO |
+| Oct 17, 2025 | Jeannie Hill | AI and SEO |
+
+## 2026
+
+| Date | Presenter | Topic |
+|---|---|---|
+| June 2026 | Aziz Plus | From craft to AI |
+| July 17, 2026 | Jeannie Hill | The New Open Knowledge Format (OKF): A Wide-Angle View |
+
+Jan–May 2026 pending.
 
 ## Notes
 
 - Dec 13, 2024 had two presenters on the same date (listed as two rows).
 - April 18, May 23, and June 20, 2025 were single-presenter sessions (no second presenter listed).
-- "Stephen" on Aug 15, 2025 — confirm whether this is Stephen Griffiths (same as Mar 21) before publishing.
-- Jeannie Hill appears twice: this Oct 2025 "AI and SEO" session, and a separate July 17, 2025 session on the New Open Knowledge Format (OKF) already live on the site's events list. Confirm the exact October date when known.
+- Jeannie Hill has presented twice: Oct 17, 2025 ("AI and SEO") and July 17, 2026 (OKF).
+- June 2026 session (Aziz Plus) only has a month confirmed, not an exact date.
