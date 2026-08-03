@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand Sharpener: AI in Practice for Marketers</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <title>Session Archive — Brand Sharpener</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -184,493 +184,63 @@
             }
         }
 
-        /* ==================== HERO SECTION ==================== */
-        #hero {
-            padding: 8rem 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
-
-        .hero-headline {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-
-        .hero-subhead {
-            font-size: 1.5rem;
-            color: #d4a843;
-            margin-bottom: 1.5rem;
-            font-weight: 500;
-        }
-
-        .hero-body {
-            color: #cbd5e0;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            line-height: 1.8;
-            max-width: 700px;
-        }
-
-        .button-group {
-            display: flex;
-            gap: 1rem;
-            margin-bottom: 4rem;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 0.85rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: 2px solid;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background-color: #d4a843;
-            color: #0a1628;
-            border-color: #d4a843;
-        }
-
-        .btn-primary:hover {
-            background-color: #e8bc4f;
-            border-color: #e8bc4f;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(212, 168, 67, 0.25);
-        }
-
-        .stats-bar {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: baseline;
-            gap: 0.75rem 1.25rem;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(212, 168, 67, 0.2);
-        }
-
-        .stat-item {
-            color: #a0aec0;
-            font-size: 1rem;
-        }
-
-        .stat-number {
-            color: #d4a843;
-            font-weight: 700;
-            font-size: 1.15rem;
-        }
-
-        .stat-divider {
-            color: rgba(212, 168, 67, 0.4);
-        }
-
-        @media (max-width: 768px) {
-            .hero-headline {
-                font-size: 2.2rem;
-            }
-
-            .hero-subhead {
-                font-size: 1.2rem;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-
-            .stats-bar {
-                gap: 0.6rem 1rem;
-            }
-        }
-
-        /* ==================== ABOUT SECTION ==================== */
-        #about {
-            background-color: #0f1d32;
-        }
-
-        /* ==================== MEMBERS SECTION ==================== */
-        .member-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
+        /* ==================== ARCHIVE LIST ==================== */
+        .archive-year {
             margin-top: 3rem;
         }
 
-        .member-badge {
-            background-color: #111f35;
-            color: #cbd5e0;
-            padding: 0.75rem 1.25rem;
-            border-radius: 50px;
-            border: 1px solid rgba(212, 168, 67, 0.3);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            opacity: 0.9;
+        .archive-year:first-of-type {
+            margin-top: 0;
         }
 
-        .member-badge:hover {
-            background-color: rgba(212, 168, 67, 0.15);
-            border-color: #d4a843;
-            transform: translateY(-2px);
-            opacity: 1;
-        }
-
-        .member-badge.large {
-            font-size: 1.05rem;
-            padding: 0.9rem 1.5rem;
-            opacity: 1;
-        }
-
-        /* ==================== EVENTS SECTION ==================== */
-        #events {
-            background-color: #0f1d32;
-        }
-
-        .events-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .event-card {
-            background-color: #111f35;
-            border: 1px solid rgba(212, 168, 67, 0.2);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .event-card:hover {
-            border-color: #d4a843;
-            background-color: rgba(212, 168, 67, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .event-date {
+        .archive-year-label {
             color: #d4a843;
             font-weight: 700;
             font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .event-topic {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .event-speaker {
-            color: #cbd5e0;
-            font-size: 0.95rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .event-speaker strong {
-            color: #ffffff;
-            font-weight: 600;
-        }
-
-        .event-format {
-            color: #a0aec0;
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .event-tag {
-            display: inline-block;
-            background-color: rgba(212, 168, 67, 0.2);
-            color: #d4a843;
-            padding: 0.4rem 1rem;
-            border-radius: 4px;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .events-note {
-            margin-bottom: 0 !important;
-        }
-
-        .events-note a {
-            color: #d4a843;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .events-note a:hover {
-            color: #e8bc4f;
-            border-bottom-color: #e8bc4f;
-        }
-
-        .speaker-spotlight {
-            display: flex;
-            gap: 2rem;
-            align-items: flex-start;
-            background-color: #111f35;
-            border: 1px solid rgba(212, 168, 67, 0.3);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        .speaker-photo {
-            flex-shrink: 0;
-        }
-
-        .speaker-photo img {
-            width: 170px;
-            height: 170px;
-            border-radius: 8px;
-            object-fit: cover;
-            border: 2px solid rgba(212, 168, 67, 0.4);
-            display: block;
-        }
-
-        .spotlight-label {
-            color: #d4a843;
-            font-weight: 600;
-            font-size: 0.85rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .speaker-name {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 0.25rem;
-        }
-
-        .speaker-role {
-            color: #d4a843;
-            font-weight: 500;
-            margin-bottom: 0.75rem;
-        }
-
-        .speaker-talk {
-            color: #ffffff;
-            font-style: italic;
-            margin-bottom: 1rem;
-        }
-
-        .speaker-bio {
-            color: #cbd5e0;
-            font-size: 1rem;
-            line-height: 1.8;
-            max-width: none;
-            margin-bottom: 0 !important;
-        }
-
-        @media (max-width: 768px) {
-            .speaker-spotlight {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-        }
-
-        /* ==================== HOW IT WORKS SECTION ==================== */
-        .how-it-works-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .step-card {
-            background-color: #0f1d32;
-            border-left: 4px solid #d4a843;
-            padding: 2rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .step-card:hover {
-            background-color: #111f35;
-            transform: translateX(10px);
-        }
-
-        .step-number {
-            color: #d4a843;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .step-title {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .step-description {
-            color: #cbd5e0;
-            line-height: 1.8;
-        }
-
-        /* ==================== HIGHLIGHTS SECTION ==================== */
-        #highlights {
-            background-color: #0f1d32;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .highlight-card {
-            background-color: #111f35;
-            border: 1px solid rgba(212, 168, 67, 0.2);
-            padding: 2rem;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-
-        .highlight-card:hover {
-            border-color: #d4a843;
-            background-color: rgba(212, 168, 67, 0.05);
-            transform: translateY(-5px);
-        }
-
-        .highlight-icon {
-            color: #d4a843;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .highlight-text {
-            color: #cbd5e0;
-            line-height: 1.8;
-        }
-
-        /* ==================== TOPICS SECTION ==================== */
-        .topic-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 3rem;
-        }
-
-        .topic-tag {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            background-color: #111f35;
-            color: #cbd5e0;
-            padding: 0.85rem 1.4rem;
-            border-radius: 8px;
-            border: 1px solid rgba(212, 168, 67, 0.25);
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .topic-tag::before {
-            content: "";
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: #d4a843;
-            flex-shrink: 0;
-        }
-
-        .topic-tag:hover {
-            border-color: #d4a843;
-            background-color: rgba(212, 168, 67, 0.08);
-            transform: translateY(-2px);
-        }
-
-        /* ==================== WHO WE ARE SECTION ==================== */
-        #who {
-            background-color: #111f35;
-        }
-
-        /* ==================== FOOTER CTA SECTION ==================== */
-        #cta {
-            background-color: #0f1d32;
-        }
-
-        .cta-content {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-content h2 {
             margin-bottom: 1.5rem;
         }
 
-        .cta-content p {
-            margin-bottom: 2.5rem;
-        }
-
-        .cta-buttons {
+        .archive-list {
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
-            align-items: center;
         }
 
-        .cta-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .cta-link {
-            color: #d4a843;
-            text-decoration: none;
-            font-size: 0.95rem;
+        .archive-card {
+            background-color: #111f35;
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 8px;
+            padding: 2rem;
             transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
         }
 
-        .cta-link:hover {
-            border-bottom-color: #d4a843;
-            transform: translateY(-2px);
+        .archive-card:hover {
+            border-color: #d4a843;
+            background-color: rgba(212, 168, 67, 0.05);
         }
 
-        @media (max-width: 768px) {
-            .cta-links {
-                flex-direction: column;
-                gap: 1rem;
-            }
+        .archive-date {
+            color: #d4a843;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .archive-entry + .archive-entry {
+            margin-top: 1.25rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(212, 168, 67, 0.15);
+        }
+
+        .archive-speaker {
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .archive-topic {
+            color: #cbd5e0;
         }
 
         /* ==================== FOOTER ==================== */
@@ -782,7 +352,7 @@
     <!-- ==================== NAVIGATION ==================== -->
     <nav>
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">
+            <a href="/" class="nav-logo">
                 <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 186.53">
                     <defs>
                         <style>
@@ -811,11 +381,11 @@
                 </svg>
             </a>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#about">About</a></li>
-                <li><a href="#events">Events</a></li>
-                <li><a href="#how">How It Works</a></li>
-                <li><a href="#members">Community</a></li>
-                <li><a href="#cta" class="nav-cta">Join Us</a></li>
+                <li><a href="/#about">About</a></li>
+                <li><a href="/#events">Events</a></li>
+                <li><a href="/#how">How It Works</a></li>
+                <li><a href="/#members">Community</a></li>
+                <li><a href="/#cta" class="nav-cta">Join Us</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
                 <span></span>
@@ -825,146 +395,124 @@
         </div>
     </nav>
 
-    <!-- ==================== HERO SECTION ==================== -->
-    <section id="hero">
-        <div class="hero-background">
-            <svg width="100%" height="100%" viewBox="0 0 1400 600" preserveAspectRatio="none">
-                <line x1="200" y1="0" x2="100" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
-                <line x1="600" y1="0" x2="400" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
-                <line x1="1000" y1="0" x2="900" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
-                <line x1="1400" y1="0" x2="1200" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
-            </svg>
-        </div>
-        <div class="hero-content">
-            <h1 class="hero-headline fade-in">Brand Sharpener</h1>
-            <p class="hero-subhead fade-in">AI in Practice — by marketers, for marketers</p>
-            <p class="hero-body fade-in">A monthly meetup where marketing practitioners demo real AI tools, share workflows, and sharpen each other's edge.</p>
-            <div class="button-group fade-in">
-                <a href="#cta" class="btn btn-primary">Join Us</a>
-            </div>
-            <div class="stats-bar fade-in">
-                <span class="stat-item"><span class="stat-number">90+</span> Members</span>
-                <span class="stat-divider">·</span>
-                <span class="stat-item"><span class="stat-number">18</span> Months Running</span>
-                <span class="stat-divider">·</span>
-                <span class="stat-item"><span class="stat-number">Monthly</span> Virtual Meetups</span>
-            </div>
-        </div>
-    </section>
+    <!-- ==================== ARCHIVE SECTION ==================== -->
+    <section id="archive">
+        <div class="section-label fade-in">Archive</div>
+        <h2 class="fade-in">See exactly what we've discussed</h2>
+        <p class="fade-in">A running record of every Brand Sharpener meetup — who presented and what we covered, going back to 2024.</p>
 
-    <!-- ==================== ABOUT SECTION ==================== -->
-    <section id="about">
-        <div class="section-label fade-in">What We Do</div>
-        <h2 class="fade-in">The room where marketers figure out AI together</h2>
-        <p class="fade-in">Brand Sharpener is a practitioner-led community, not a webinar series. Every month, working marketers bring real tools to the table, run live demos, and have honest conversations about what's actually working. No vendor pitches. No hype. Just sharp people making each other sharper.</p>
-    </section>
-
-    <!-- ==================== MEMBERS SECTION ==================== -->
-    <section id="members">
-        <div class="section-label fade-in">Our Members</div>
-        <h2 class="fade-in">Marketing and AI leaders learning in real time</h2>
-        <p class="fade-in">Our members span marketing, strategy, data, and creative disciplines, from CMOs and creative directors to data strategists and founders. We're practitioners and leaders who share what works and what doesn't to accelerate progress together.</p>
-        <div class="member-grid" id="memberGrid"></div>
-    </section>
-
-    <!-- ==================== EVENTS SECTION ==================== -->
-    <section id="events">
-        <div class="section-label fade-in">Upcoming Events</div>
-        <h2 class="fade-in">What's next on the calendar</h2>
-        <p class="fade-in events-note">Meetups are members-only. <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8kMjPeo58VjJC-uWSwKG_IuNP-M2ZM5tRPt5BKC8gR3bhbA/viewform" target="_blank">Apply to join</a>, or email <a href="mailto:brandsharpenerhq@gmail.com">brandsharpenerhq@gmail.com</a> to be added to the invite.</p>
-        <div class="speaker-spotlight fade-in">
-            <div class="speaker-photo">
-                <img src="jeannie.jpg" alt="Jeannie Hill, Founder of Hill Web Creations">
-            </div>
-            <div class="speaker-info">
-                <div class="spotlight-label">Featured Speaker · July 17</div>
-                <h3 class="speaker-name">Jeannie Hill</h3>
-                <div class="speaker-role">Founder &amp; Digital Marketing Consultant, Hill Web Creations</div>
-                <div class="speaker-talk">"The New Open Knowledge Format (OKF): A Wide-Angle View"</div>
-                <p class="speaker-bio">Jeannie is the founder of Hill Web Creations, where she helps small and mid-sized businesses win a stronger presence in search results and knowledge panels. Her work spans technical SEO, semantic search and natural language processing, schema markup, and conversion optimization — a consultative practice built on first understanding a client's business and goals. That focus on structuring information so machines can understand it makes her a natural guide to the Open Knowledge Format, the emerging open-source way of cataloging a business so AI agents can read and act on it.</p>
-            </div>
-        </div>
-        <div class="events-container" id="eventsContainer"></div>
-    </section>
-
-    <!-- ==================== HOW IT WORKS SECTION ==================== -->
-    <section id="how">
-        <div class="section-label fade-in">How It Works</div>
-        <h2 class="fade-in">Show up. Engage. Leave sharper.</h2>
-        <div class="how-it-works-grid">
-            <div class="step-card fade-in">
-                <div class="step-number">01</div>
-                <div class="step-title">Apply</div>
-                <div class="step-description">Apply through our form. We keep the group intentionally small to maintain high engagement and real connection. Not all applicants are admitted, but if you're experimenting with AI in marketing and ready to contribute, this might be the place you've been looking for.</div>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">02</div>
-                <div class="step-title">Show Up</div>
-                <div class="step-description">Attend monthly meetups, held virtually via Google Meet. Watch live demos, ask questions, and swap notes with peers.</div>
-            </div>
-            <div class="step-card fade-in">
-                <div class="step-number">03</div>
-                <div class="step-title">Sharpen</div>
-                <div class="step-description">Take what you learn back to your team. Demo a tool yourself. The more you put in, the sharper you get.</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ==================== WHO WE ARE SECTION ==================== -->
-    <section id="who">
-        <div class="section-label fade-in">Who We Are</div>
-        <h2 class="fade-in">Not for spectators</h2>
-        <p class="fade-in">Brand Sharpener is a growing community of active AI enthusiasts, marketers and makers who are testing, building, and learning in real time. You don't need to be an AI expert. You just need to be curious, collaborative, and willing to share what you're trying, whether it's a success or a work-in-progress.</p>
-    </section>
-
-    <!-- ==================== HIGHLIGHTS SECTION ==================== -->
-    <section id="highlights">
-        <div class="section-label fade-in">Highlights</div>
-        <h2 class="fade-in">From our recent meetups</h2>
-        <div class="highlights-grid">
-            <div class="highlight-card fade-in">
-                <div class="highlight-icon">✓</div>
-                <div class="highlight-text">Plus Aziz traced the through-line from craft to AI, opening with a 2005 letterpress project and his love of tactility in design</div>
-            </div>
-            <div class="highlight-card fade-in">
-                <div class="highlight-icon">✓</div>
-                <div class="highlight-text">A live Canva walkthrough: using its AI to separate subjects from backgrounds and chatting directly with images to edit them</div>
-            </div>
-            <div class="highlight-card fade-in">
-                <div class="highlight-icon">✓</div>
-                <div class="highlight-text">How Canva and Adobe can power creative automations, and where Adobe may push next on analytics</div>
-            </div>
-            <div class="highlight-card fade-in">
-                <div class="highlight-icon">✓</div>
-                <div class="highlight-text">The group explored brand "digital twins" and Open Knowledge Format (OKF), an open-source way to catalog a business so AI agents can read and understand it</div>
-            </div>
-            <div class="highlight-card fade-in">
-                <div class="highlight-icon">✓</div>
-                <div class="highlight-text">Members flagged GEO / AIO (generative and AI search optimization) as a topic for an upcoming session</div>
+        <div class="archive-year">
+            <div class="archive-year-label fade-in">2025</div>
+            <div class="archive-list">
+                <div class="archive-card fade-in">
+                    <div class="archive-date">October 17, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Jeannie Hill</div>
+                        <div class="archive-topic">AI and SEO</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">September 19, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Yogesh Chavda</div>
+                        <div class="archive-topic">6 Skills for AI</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">August 15, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Stephen Griffiths</div>
+                        <div class="archive-topic">AI Hackathon</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">July 18, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Doug Weil, Consolidus</div>
+                        <div class="archive-topic">CustomGPT for Sales Training</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">June 20, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Doug Guion</div>
+                        <div class="archive-topic">Overview of AI Agents</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">May 23, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Curt Meinhold</div>
+                        <div class="archive-topic">AI Video Generation for Legacy Websites</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">April 18, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Brett Harris</div>
+                        <div class="archive-topic">What's going on at SGK</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">March 21, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Curt Meinhold</div>
+                        <div class="archive-topic">POC with a sort of deep research</div>
+                    </div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Stephen Griffiths</div>
+                        <div class="archive-topic">Deep Research</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">February 21, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Heather Terry, Curious Content Consulting</div>
+                        <div class="archive-topic">AI-Driven Content Strategy — From Analysis to Authenticity</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">January 17, 2025</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Douglas Campbell</div>
+                        <div class="archive-topic">Insights into AI automations using tools like Make.com and Zapier (Raizor.co)</div>
+                    </div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Brett Harris, SGK</div>
+                        <div class="archive-topic">How to scale AI within your organization — what it was like at SGK</div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- ==================== TOPICS SECTION ==================== -->
-    <section id="topics">
-        <div class="section-label fade-in">Our Track Record</div>
-        <h2 class="fade-in">What we've dug into together</h2>
-        <p class="fade-in">Every month, members bring real examples to the table: the tools, workflows, and honest lessons behind what's actually working. A sample of the ground we've covered:</p>
-        <div class="topic-grid" id="topicsGrid"></div>
-    </section>
-
-    <!-- ==================== CTA SECTION ==================== -->
-    <section id="cta">
-        <div class="cta-content">
-            <div class="section-label fade-in">Join Us</div>
-            <h2 class="fade-in">Ready to sharpen up?</h2>
-            <p class="fade-in">Apply to join Brand Sharpener. We review every application to keep the group engaged and high-quality.</p>
-            <div class="cta-buttons fade-in">
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd8kMjPeo58VjJC-uWSwKG_IuNP-M2ZM5tRPt5BKC8gR3bhbA/viewform" class="btn btn-primary" target="_blank">Apply to Join</a>
-            </div>
-            <div class="cta-links fade-in">
-                <a href="https://www.linkedin.com/groups/14593688/" class="cta-link" target="_blank">LinkedIn Group</a>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLSduYixc5PJnpRwHvcfa5HCIHJbie5dIgvG-3rlBVfqWdavDRQ/viewform?usp=sharing&ouid=116940832072664058327" class="cta-link" target="_blank">Suggest a Discussion Topic</a>
+        <div class="archive-year">
+            <div class="archive-year-label fade-in">2024</div>
+            <div class="archive-list">
+                <div class="archive-card fade-in">
+                    <div class="archive-date">December 13, 2024</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Yogesh Chavda</div>
+                        <div class="archive-topic">The Role of Synthetic Data in Market Research — synthetic data: a guide for leaning in or not leaning in. Strategy focused</div>
+                    </div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Doug Guion</div>
+                        <div class="archive-topic">Yabble — 6–7x faster: synthetic audiences (parallel testing)</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">2024</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Brett Harris</div>
+                        <div class="archive-topic">Midjourney for storyboarding</div>
+                    </div>
+                </div>
+                <div class="archive-card fade-in">
+                    <div class="archive-date">2024</div>
+                    <div class="archive-entry">
+                        <div class="archive-speaker">Yogesh Chavda</div>
+                        <div class="archive-topic">How he built a churn prediction model for a client in the hearing aid industry</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1013,11 +561,11 @@
                 <div class="footer-section">
                     <h3>Resources</h3>
                     <div class="footer-links">
+                        <a href="/">Home</a>
                         <a href="https://www.linkedin.com/groups/14593688/" target="_blank">LinkedIn Group</a>
                         <a href="https://docs.google.com/presentation/d/1Pxp8UE10sD4y4PKdHmsoAiopJKwpBnzuRKdK3oUldY0/edit" target="_blank">Member Bios</a>
                         <a href="https://docs.google.com/spreadsheets/d/1zs601lhXuwNvkJYQ4dI6RwxZGr9qSG7s9Jb13j3GRy0/edit" target="_blank">AI Tool Evaluation</a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvYsA_p5uiBE-OXGn5dJkLYF-OET0EjX92Izk2ZEjqo37B1w/viewform?usp=header" target="_blank">Manage Your Membership</a>
-                        <a href="/archive">Session Archive</a>
                     </div>
                 </div>
             </div>
@@ -1028,60 +576,6 @@
     </footer>
 
     <script>
-        // ==================== DATA ====================
-        // Events array - update as needed
-        const events = [
-            { date: "July 17", topic: "The New Open Knowledge Format (OKF): A Wide-Angle View", speaker: "Jeannie Hill", format: "Google Meet, 12:00 CT", tag: "MEETUP" },
-            { date: "August 21", topic: "A look inside local models", speaker: "Curt Meinhold", format: "Google Meet, 12:00 CT", tag: "MEETUP" },
-            { date: "September 18", topic: "TBD", format: "Google Meet, 12:00 CT", tag: "MEETUP" }
-        ];
-
-        // Member titles array
-        const memberTitles = [
-            "Director of Marketing",
-            "VP Marketing",
-            "VP AI Strategy & Enablement",
-            "Creative Director of Marketing",
-            "President",
-            "Chief Growth Officer",
-            "CEO",
-            "Digital Services Director",
-            "CCO",
-            "Digital Marketing Director",
-            "Sr. Marketing Strategist",
-            "Director of Digital Media Strategy",
-            "SVP",
-            "VP Product",
-            "Head of Measurement & Analytics",
-            "VP Research and Data Science",
-            "Head of Insights",
-            "Principal",
-            "Founder",
-            "Co-Founder",
-            "Marketing Research Consultant & Strategist",
-            "Lead Photographer",
-            "BIA Advisory Services",
-            "Integrated Marketer",
-            "Media and Market Research Consultant",
-            "Executive Vice President Partner"
-        ];
-
-        // Topics covered array - update as the group covers new ground
-        const topics = [
-            "Creative AI & storyboarding",
-            "Synthetic data & synthetic audiences",
-            "Marketing automation & content ops",
-            "AI transformation & opportunity scoring",
-            "Persona-driven content & custom GPTs",
-            "Deep research & multi-tool verification",
-            "Agentic AI",
-            "AI-powered SEO & answer engines",
-            "Custom-GPT sales training",
-            "AI literacy & KPI frameworks",
-            "Churn & predictive modeling",
-            "Packaging & creative QC automation"
-        ];
-
         // ==================== HAMBURGER MENU ====================
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
@@ -1096,46 +590,7 @@
             });
         });
 
-        // ==================== RENDER EVENTS ====================
-        const eventsContainer = document.getElementById('eventsContainer');
-        events.forEach(event => {
-            const eventCard = document.createElement('div');
-            eventCard.className = 'event-card fade-in';
-            const speakerHtml = event.speaker
-                ? `<div class="event-speaker"><strong>${event.speaker}</strong>${event.speakerTitle ? ', ' + event.speakerTitle : ''}</div>`
-                : '';
-            eventCard.innerHTML = `
-                <div class="event-date">${event.date}</div>
-                <div class="event-topic">${event.topic}</div>
-                ${speakerHtml}
-                <div class="event-format">${event.format}</div>
-                <span class="event-tag">${event.tag}</span>
-            `;
-            eventsContainer.appendChild(eventCard);
-        });
-
-        // ==================== RENDER MEMBER BADGES ====================
-        const memberGrid = document.getElementById('memberGrid');
-        memberTitles.forEach((title, index) => {
-            const badge = document.createElement('div');
-            badge.className = 'member-badge fade-in';
-            if (index % 5 === 0 || index % 7 === 0) {
-                badge.classList.add('large');
-            }
-            badge.textContent = title;
-            memberGrid.appendChild(badge);
-        });
-
-        // ==================== RENDER TOPICS ====================
-        const topicsGrid = document.getElementById('topicsGrid');
-        topics.forEach(topic => {
-            const tag = document.createElement('div');
-            tag.className = 'topic-tag fade-in';
-            tag.textContent = topic;
-            topicsGrid.appendChild(tag);
-        });
-
-        // ==================== INTERSECTION OBSERVER FOR FADE-IN ====================
+        // ==================== FADE-IN ON SCROLL ====================
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1152,19 +607,6 @@
 
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
-        });
-
-        // ==================== SMOOTH SCROLL ====================
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const href = this.getAttribute('href');
-                if (href !== '#' && document.querySelector(href)) {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-            });
         });
     </script>
 </body>
