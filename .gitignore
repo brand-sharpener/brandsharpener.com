@@ -6,3 +6,10 @@
 # Internal / source docs — keep out of the public repo
 *.docx
 *.pdf
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
