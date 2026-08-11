@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Session Archive — Brand Sharpener</title>
+    <title>Team — Brand Sharpener</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -184,82 +184,39 @@
             }
         }
 
-        /* ==================== ARCHIVE LIST ==================== */
-        .archive-year {
-            margin-top: 3rem;
-        }
-
-        .archive-year:first-of-type {
-            margin-top: 0;
-        }
-
-        .archive-year-label {
-            color: #d4a843;
-            font-weight: 700;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .archive-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-
-        .archive-card {
+        /* ==================== COMING SOON ==================== */
+        .coming-soon {
+            text-align: center;
+            padding: 4rem 2rem;
             background-color: #111f35;
             border: 1px solid rgba(212, 168, 67, 0.2);
             border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
+            margin-top: 2rem;
         }
 
-        .archive-card:hover {
-            border-color: #d4a843;
-            background-color: rgba(212, 168, 67, 0.05);
-        }
-
-        .archive-date {
+        .coming-soon-badge {
+            display: inline-block;
             color: #d4a843;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border: 1px solid rgba(212, 168, 67, 0.4);
+            border-radius: 999px;
+            padding: 0.4rem 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .coming-soon h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
             margin-bottom: 1rem;
         }
 
-        .archive-entry {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-        }
-
-        .archive-entry + .archive-entry {
-            margin-top: 1.25rem;
-            padding-top: 1.25rem;
-            border-top: 1px solid rgba(212, 168, 67, 0.15);
-        }
-
-        .archive-entry-photo {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            object-fit: cover;
-            flex-shrink: 0;
-            border: 2px solid rgba(212, 168, 67, 0.3);
-        }
-
-        .archive-entry-content {
-            flex: 1;
-        }
-
-        .archive-speaker {
-            color: #ffffff;
-            font-weight: 600;
-            font-size: 1.05rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .archive-topic {
+        .coming-soon p {
             color: #cbd5e0;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* ==================== FOOTER ==================== */
@@ -416,231 +373,15 @@
     </nav>
 
     <!-- ==================== ARCHIVE SECTION ==================== -->
-    <section id="archive">
-        <div class="section-label fade-in">Archive</div>
-        <h2 class="fade-in">See exactly what we've discussed</h2>
-        <p class="fade-in">A running record of every Brand Sharpener meetup — who presented and what we covered, going back to 2024.</p>
+    <section id="team">
+        <div class="section-label fade-in">Team</div>
+        <h2 class="fade-in">The people behind Brand Sharpener</h2>
+        <p class="fade-in">Meet the founders and members shaping our community of marketing leaders exploring AI together.</p>
 
-        <div class="archive-year">
-            <div class="archive-year-label fade-in">2026</div>
-            <div class="archive-list">
-                <div class="archive-card fade-in">
-                    <div class="archive-date">July 17, 2026</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../jeannie.jpg" alt="Jeannie Hill">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Jeannie Hill</div>
-                            <div class="archive-topic">The New Open Knowledge Format (OKF): A Wide-Angle View</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">June 2026</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../aziz.jpg" alt="Aziz Plus">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Aziz Plus</div>
-                            <div class="archive-topic">From craft to AI</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">May 2026</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/krystihorvat.jpeg" alt="Krysti Horvat">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Krysti Horvat</div>
-                            <div class="archive-topic">How a subject matter expert used Claude to build a tool that simplifies legacy software for graphic designers</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">March 20, 2026</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/justinmancari.png" alt="Justin Mancari">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Justin Mancari</div>
-                            <div class="archive-topic">Personal AI skills (and paid accounts) as a professional responsibility: a crawl/walk/run framework toward autonomous automation and agents, plus platform comparisons (GPTs vs. Projects vs. Gems)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">February 20, 2026</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Roxanna &amp; the group's co-founders</div>
-                            <div class="archive-topic">MAGIC Rebrand Reveal + How AI Helped</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">January 2026</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Open Group Discussion</div>
-                            <div class="archive-topic">AI note-taking in meetings, virtual meeting tool experiences, and AI use cases/skills for marketing success. Action items: future sessions on AI onboarding and Google NotebookLM.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="archive-year">
-            <div class="archive-year-label fade-in">2025</div>
-            <div class="archive-list">
-                <div class="archive-card fade-in">
-                    <div class="archive-date">October 17, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../jeannie.jpg" alt="Jeannie Hill">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Jeannie Hill</div>
-                            <div class="archive-topic">AI and SEO</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">September 19, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/yogeshchavda.png" alt="Yogesh Chavda">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Yogesh Chavda</div>
-                            <div class="archive-topic">6 Skills for AI</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">August 15, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/stephengriffiths.jpeg" alt="Stephen Griffiths">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Stephen Griffiths</div>
-                            <div class="archive-topic">AI Hackathon</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">July 18, 2025</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Doug Weil, Consolidus</div>
-                            <div class="archive-topic">CustomGPT for Sales Training</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">June 20, 2025</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Doug Guion</div>
-                            <div class="archive-topic">Overview of AI Agents</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">May 23, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/Curt.png" alt="Curt Meinhold">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Curt Meinhold</div>
-                            <div class="archive-topic">AI Video Generation for Legacy Websites</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">April 18, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/brettharris.jpeg" alt="Brett Harris">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Brett Harris</div>
-                            <div class="archive-topic">What's going on at SGK</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">March 21, 2025</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/Curt.png" alt="Curt Meinhold">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Curt Meinhold</div>
-                            <div class="archive-topic">POC with a sort of deep research</div>
-                        </div>
-                    </div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/stephengriffiths.jpeg" alt="Stephen Griffiths">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Stephen Griffiths</div>
-                            <div class="archive-topic">Deep Research</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">February 21, 2025</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Heather Terry, Curious Content Consulting</div>
-                            <div class="archive-topic">AI-Driven Content Strategy — From Analysis to Authenticity</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">January 17, 2025</div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Douglas Campbell</div>
-                            <div class="archive-topic">Insights into AI automations using tools like Make.com and Zapier (Raizor.co)</div>
-                        </div>
-                    </div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/brettharris.jpeg" alt="Brett Harris">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Brett Harris, SGK</div>
-                            <div class="archive-topic">How to scale AI within your organization — what it was like at SGK</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="archive-year">
-            <div class="archive-year-label fade-in">2024</div>
-            <div class="archive-list">
-                <div class="archive-card fade-in">
-                    <div class="archive-date">December 13, 2024</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/yogeshchavda.png" alt="Yogesh Chavda">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Yogesh Chavda</div>
-                            <div class="archive-topic">The Role of Synthetic Data in Market Research — synthetic data: a guide for leaning in or not leaning in. Strategy focused</div>
-                        </div>
-                    </div>
-                    <div class="archive-entry">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Doug Guion</div>
-                            <div class="archive-topic">Yabble — 6–7x faster: synthetic audiences (parallel testing)</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">2024</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/brettharris.jpeg" alt="Brett Harris">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Brett Harris</div>
-                            <div class="archive-topic">Midjourney for storyboarding</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="archive-card fade-in">
-                    <div class="archive-date">2024</div>
-                    <div class="archive-entry">
-                        <img class="archive-entry-photo" src="../headshots/yogeshchavda.png" alt="Yogesh Chavda">
-                        <div class="archive-entry-content">
-                            <div class="archive-speaker">Yogesh Chavda</div>
-                            <div class="archive-topic">How he built a churn prediction model for a client in the hearing aid industry</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="coming-soon fade-in">
+            <div class="coming-soon-badge">Coming Soon</div>
+            <h3>Founder &amp; member profiles are on the way</h3>
+            <p>We're putting together photos and bios for the people who lead and shape Brand Sharpener. Check back soon to meet the team.</p>
         </div>
     </section>
 
@@ -693,7 +434,7 @@
                         <a href="https://docs.google.com/presentation/d/1Pxp8UE10sD4y4PKdHmsoAiopJKwpBnzuRKdK3oUldY0/edit" target="_blank">Member Bios</a>
                         <a href="https://docs.google.com/spreadsheets/d/1zs601lhXuwNvkJYQ4dI6RwxZGr9qSG7s9Jb13j3GRy0/edit" target="_blank">AI Tool Evaluation</a>
                         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfvYsA_p5uiBE-OXGn5dJkLYF-OET0EjX92Izk2ZEjqo37B1w/viewform?usp=header" target="_blank">Manage Your Membership</a>
-                        <a href="/team">Team</a>
+                        <a href="/archive">Session Archive</a>
                     </div>
                 </div>
             </div>
