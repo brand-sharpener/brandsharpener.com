@@ -6,3 +6,6 @@
 # Internal / source docs — keep out of the public repo
 *.docx
 *.pdf
+
+# Public downloads, exempted from the blanket rule above
+!resources/*.pdf
