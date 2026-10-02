@@ -214,10 +214,31 @@
             pointer-events: none;
         }
 
-        .hero-content {
+        .hero-container {
             position: relative;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-content {
+            flex: 1 1 500px;
             max-width: 700px;
+        }
+
+        .hero-image {
+            flex: 1 1 380px;
+            max-width: 460px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(212, 168, 67, 0.2);
         }
 
         .hero-headline {
@@ -300,6 +321,11 @@
         }
 
         @media (max-width: 768px) {
+            .hero-image {
+                max-width: 340px;
+                margin: 0 auto;
+            }
+
             .hero-headline {
                 font-size: 2.2rem;
             }
@@ -849,19 +875,24 @@
                 <line x1="1400" y1="0" x2="1200" y2="600" stroke="#d4a843" stroke-width="2" opacity="0.1"/>
             </svg>
         </div>
-        <div class="hero-content">
-            <h1 class="hero-headline fade-in">Brand Sharpener</h1>
-            <p class="hero-subhead fade-in">AI in Practice — by marketers, for marketers</p>
-            <p class="hero-body fade-in">A community of experienced marketing, insights, product, creative, and business leaders exploring how AI is transforming marketing — through practical insights, real-world applications, and peer-to-peer learning. We believe the best ideas are sharpened through conversation.</p>
-            <div class="button-group fade-in">
-                <a href="#cta" class="btn btn-primary">Join Us</a>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-headline fade-in">Brand Sharpener</h1>
+                <p class="hero-subhead fade-in">AI in Practice — by marketers, for marketers</p>
+                <p class="hero-body fade-in">A community of experienced marketing, insights, product, creative, and business leaders exploring how AI is transforming marketing — through practical insights, real-world applications, and peer-to-peer learning. We believe the best ideas are sharpened through conversation.</p>
+                <div class="button-group fade-in">
+                    <a href="#cta" class="btn btn-primary">Join Us</a>
+                </div>
+                <div class="stats-bar fade-in">
+                    <span class="stat-item"><span class="stat-number">90+</span> Members</span>
+                    <span class="stat-divider">·</span>
+                    <span class="stat-item"><span class="stat-number">18</span> Months Running</span>
+                    <span class="stat-divider">·</span>
+                    <span class="stat-item"><span class="stat-number">Monthly</span> Virtual Meetups</span>
+                </div>
             </div>
-            <div class="stats-bar fade-in">
-                <span class="stat-item"><span class="stat-number">90+</span> Members</span>
-                <span class="stat-divider">·</span>
-                <span class="stat-item"><span class="stat-number">18</span> Months Running</span>
-                <span class="stat-divider">·</span>
-                <span class="stat-item"><span class="stat-number">Monthly</span> Virtual Meetups</span>
+            <div class="hero-image fade-in">
+                <img src="brand assets/brandsharpener_webimage.jpg" alt="Brand Sharpener — A Marketing AI Practice Circle">
             </div>
         </div>
     </section>
