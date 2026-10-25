@@ -41,6 +41,9 @@ to the bottom as they happen.
 | May 2026 | Krysti Horvat | How a subject matter expert used Claude to build a tool that simplifies legacy software for graphic designers |
 | June 2026 | Aziz Plus | From craft to AI |
 | July 17, 2026 | Jeannie Hill | The New Open Knowledge Format (OKF): A Wide-Angle View |
+| Aug 21, 2026 | Curt Meinhold | Private AI on Your Desktop: Getting Started with Small Language Models |
+| Sept 18, 2026 | Christina Boris | A Practical GenAI Use Case for Presentations — demoed Napkin AI, a text-to-visual tool |
+| Oct 16, 2026 | Tahnee Perry | The Buyer Journey for the AI-Native Era |
 
 ## Notes
 
