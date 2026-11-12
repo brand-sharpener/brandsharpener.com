@@ -39,7 +39,7 @@ to the bottom as they happen.
 | March 20, 2026 | Justin Mancari | Personal AI skills (and paid accounts) as a professional responsibility: a crawl/walk/run framework toward autonomous automation and agents, plus platform comparisons (GPTs vs. Projects vs. Gems) |
 | April 2026 | TBD | Pending |
 | May 2026 | Krysti Horvat | How a subject matter expert used Claude to build a tool that simplifies legacy software for graphic designers |
-| June 2026 | Aziz Plus | From craft to AI |
+| June 2026 | Aziz Plus | From craft to AI — included a live Canva walkthrough: using its AI to separate subjects from backgrounds and chatting directly with images to edit them |
 | July 17, 2026 | Jeannie Hill | The New Open Knowledge Format (OKF): A Wide-Angle View |
 | Aug 21, 2026 | Curt Meinhold | Private AI on Your Desktop: Getting Started with Small Language Models |
 | Sept 18, 2026 | Christina Boris | A Practical GenAI Use Case for Presentations — demoed Napkin AI, a text-to-visual tool |
