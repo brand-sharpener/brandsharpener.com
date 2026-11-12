@@ -43,7 +43,7 @@ to the bottom as they happen.
 | July 17, 2026 | Jeannie Hill | The New Open Knowledge Format (OKF): A Wide-Angle View |
 | Aug 21, 2026 | Curt Meinhold | Private AI on Your Desktop: Getting Started with Small Language Models |
 | Sept 18, 2026 | Christina Boris | A Practical GenAI Use Case for Presentations — demoed Napkin AI, a text-to-visual tool |
-| Oct 16, 2026 | Tahnee Perry | The Buyer Journey for the AI-Native Era |
+| Oct 16, 2026 | Tahnee Perry | The Buyer Journey for the AI-Native Era — drawing on two decades in go-to-market strategy and AI, Tahnee explored how the buyer journey is being reshaped in the AI-native era and what that means for how marketers build trust and drive growth. A polished, engaging session from a seasoned keynote speaker and AI educator. |
 
 ## Notes
 
